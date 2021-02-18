@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite-url/tags/index.html</loc>
+    <loc>http://yangshenyi.github.io/about/index.html</loc>
+    
+    <lastmod>2021-02-18</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangshenyi.github.io/2021/02/18/A-New-World/</loc>
+    
+    <lastmod>2021-02-18</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yangshenyi.github.io/tags/index.html</loc>
     
     <lastmod>2021-02-17</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite-url/categories/index.html</loc>
+    <loc>http://yangshenyi.github.io/categories/index.html</loc>
     
     <lastmod>2021-02-17</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite-url/archive/index.html</loc>
+    <loc>http://yangshenyi.github.io/archive/index.html</loc>
     
     <lastmod>2021-02-17</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite-url/about/index.html</loc>
-    
-    <lastmod>2021-02-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/2020/04/17/Hexo-Theme-LiveMyLife/</loc>
-    
-    <lastmod>2021-02-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/404.html</loc>
+    <loc>http://yangshenyi.github.io/404.html</loc>
     
     <lastmod>2021-02-17</lastmod>
     
@@ -45,23 +45,23 @@
   
 
   <url>
-    <loc>http://yoursite-url/</loc>
-    <lastmod>2021-02-17</lastmod>
+    <loc>http://yangshenyi.github.io/</loc>
+    <lastmod>2021-02-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>http://yoursite-url/tags/Hexo/</loc>
-    <lastmod>2021-02-17</lastmod>
+    <loc>http://yangshenyi.github.io/tags/informal-essay/</loc>
+    <lastmod>2021-02-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite-url/tags/Hexo-Theme-LiveMyLife/</loc>
-    <lastmod>2021-02-17</lastmod>
+    <loc>http://yangshenyi.github.io/tags/thoughtful-node/</loc>
+    <lastmod>2021-02-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -69,8 +69,8 @@
 
   
   <url>
-    <loc>http://yoursite-url/categories/Hexo-Theme-LiveMyLife/</loc>
-    <lastmod>2021-02-17</lastmod>
+    <loc>http://yangshenyi.github.io/categories/informal-essay/</loc>
+    <lastmod>2021-02-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
