@@ -195,7 +195,7 @@
 
           
           <li>
-            <a href="/about/">About</a>
+            <a href="/categories/">Categories</a>
           </li>
           
           
@@ -209,14 +209,14 @@
 
           
           <li>
-            <a href="/categories/">Categories</a>
+            <a href="/tags/">Tags</a>
           </li>
           
           
 
           
           <li>
-            <a href="/tags/">Tags</a>
+            <a href="/about/">About</a>
           </li>
           
           
@@ -537,15 +537,11 @@
 </ul>
 <p>​    </p>
 <h2 id="关于git存储原理浅究"><a href="#关于git存储原理浅究" class="headerlink" title="关于git存储原理浅究"></a>关于git存储原理浅究</h2><p>​    如前文所述，本地库根目录下有一个隐藏的文件夹<code>.git</code>，里面存储了版本库信息。</p>
-<ul>
-<li><p><strong>git里面的objects</strong></p>
-<p>假设完成一次add&amp;&amp;commit：</p>
+<h3 id="git里面的objects"><a href="#git里面的objects" class="headerlink" title="git里面的objects:"></a><strong>git里面的objects</strong>:</h3><p>假设完成一次add&amp;&amp;commit：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls .git/objects</span><br><span class="line">4c/  58/  c2/  f5/  info/  pack/</span><br></pre></td></tr></table></figure>
 
 
 
-</li>
-</ul>
 <ul>
 <li><p><strong>blob</strong></p>
 <p>当我们add一个工作区的文件到暂存库，<code>.git/objects</code>目录里面就会产生一个该类型的对象。</p>
@@ -560,17 +556,13 @@
 <p>当我们commit一次，除了tree以外，我们还会找到一个新的类型的对象。</p>
 <p>它存储一次提交信息，包括对应tree的哈希值，上一个提交的哈希值（这里由于是第一个提交，所以没有父节点。在一个merge提交中还会出现多个父节点），提交的作者以及提交的具体时间，最后是该提交的信息。</p>
 <p>当然，commit也有自己的SHA1值作为身份牌。</p>
+</li>
+</ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tree</span></span><br><span class="line">$ git cat-file -t 4caa</span><br><span class="line">tree</span><br><span class="line"></span><br><span class="line">$ git cat-file -p 4caa</span><br><span class="line">100644 blob 58c9bdf9d017fcd178dc8c073cbfcbb7ff240d6c    a.txt</span><br><span class="line">100644 blob c200906efd24ec5e783bee7f23b5d7c941b0c12c    b.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># commit</span></span><br><span class="line">$ git cat-file -t f518</span><br><span class="line">commit</span><br><span class="line"></span><br><span class="line">$ git cat-file -p f518</span><br><span class="line">tree 4caaa1a9ae0b274fba9e3675f9ef071616e5b209</span><br><span class="line">author yangshenyi &lt;2437802588@qq.com&gt; 1614174573 +0800</span><br><span class="line">committer yangshenyi &lt;2437802588@qq.com&gt; 1614174573 +0800</span><br><span class="line"></span><br><span class="line">[+] init</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<ul>
-<li><p><strong>git里面的分支存储</strong></p>
-<p>​    我们都知道，git里面的分支操作是很快的，为什么呢？因为分支本身只是一个“类指针”，不同于C里面存储逻辑地址的指针，这里的指针存储的是commit对象的SHA1值。所以所谓分支只是指向不同提交节点的“指针”。</p>
+<h3 id="git里面的分支存储"><a href="#git里面的分支存储" class="headerlink" title="git里面的分支存储"></a><strong>git里面的分支存储</strong></h3><p>​    我们都知道，git里面的分支操作是很快的，为什么呢？因为分支本身只是一个“类指针”，不同于C里面存储逻辑地址的指针，这里的指针存储的是commit对象的SHA1值。所以所谓分支只是指向不同提交节点的“指针”。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .git/HEAD</span></span><br><span class="line"><span class="comment"># 指向当前分支</span></span><br><span class="line">$ cat .git/HEAD</span><br><span class="line">ref: refs/heads/master</span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们来看看当前分支文件存的是什么</span></span><br><span class="line">$ cat .git/refs/heads/master</span><br><span class="line">f518a444791fa19a5b927145e67f058eb8d7bba4</span><br><span class="line"><span class="comment">#刚好是当前的commit对象的SHA1</span></span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
 <p>这样，结合git的三个区，较容易理解：当我们修改工作区的文件时候，.git里面没有变化；当我们add时候，一方面增加了相应的blob对象，一方面改变了<code>.git/index</code>（或许是所谓暂存区）的内容；当我们commit的时候，我们增加了相应的tree和commit对象，并且将当前分支和HEAD都改变指向到最近的commit对象。而创建新的分支也不过是在<code>.git/refs里面增加了新的文件</code>。</p>
 <blockquote>
 <p>注：</p>
@@ -668,7 +660,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#引入"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">引入</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#时光机"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">时光机</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#查看仓库状态"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">查看仓库状态</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#读取存档"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">读取存档</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#工作区-暂存区-版本库"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">工作区 暂存区 版本库</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#删除文件"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">删除文件</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#远程仓库"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">远程仓库</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#分支管理"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">分支管理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#创建分支以及一些其他操作"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">创建分支以及一些其他操作</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#分支合并冲突"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">分支合并冲突</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#保留合并历史"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">保留合并历史</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#bug"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">bug</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#功能分支"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">功能分支</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#标签"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">标签</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#关于git存储原理浅究"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">关于git存储原理浅究</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#引入"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">引入</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#时光机"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">时光机</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#查看仓库状态"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">查看仓库状态</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#读取存档"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">读取存档</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#工作区-暂存区-版本库"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">工作区 暂存区 版本库</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#删除文件"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">删除文件</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#远程仓库"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">远程仓库</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#分支管理"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">分支管理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#创建分支以及一些其他操作"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">创建分支以及一些其他操作</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#分支合并冲突"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">分支合并冲突</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#保留合并历史"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">保留合并历史</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#bug"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">bug</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#功能分支"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">功能分支</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#标签"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">标签</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#关于git存储原理浅究"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">关于git存储原理浅究</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git里面的objects"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">git里面的objects:</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git里面的分支存储"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">git里面的分支存储</span></a></li></ol></li></ol>
         
         </div>
       </aside>
