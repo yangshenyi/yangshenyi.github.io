@@ -319,7 +319,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">3.2k</span> In Total
+              Words <span class="post-count">3.1k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -384,8 +384,9 @@
         <p><img src="tucao.jpg" alt="假期要结束了"></p>
 <blockquote>
 <p>第一篇记录（恐怕也是返校前唯一一篇了，慢更 ：）</p>
+<p>注：上图取自 朵朵校友圈 </p>
 </blockquote>
-<h2 id="1-引入"><a href="#1-引入" class="headerlink" title="1  引入"></a>1  引入</h2><p>​    Git是目前世界上最先进的<strong>分布式版本控制系统</strong></p>
+<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>​    Git是目前世界上最先进的<strong>分布式版本控制系统</strong></p>
 <p>​    不但能自动记录每次文件的改动，还可以让同事协作编辑。这样就不用自己管理一堆类似的文件了，也不需要把文件传来传去：这就是版本控制。</p>
 <blockquote>
 <p>CVS和SVN，这些集中式的版本控制系统不但速度慢，而且必须联网才能使用。</p>
@@ -417,9 +418,9 @@
 </ul>
 </li>
 </ul>
-<h2 id="2-时光机"><a href="#2-时光机" class="headerlink" title="2 时光机"></a>2 时光机</h2><h4 id="2-1-查看仓库状态"><a href="#2-1-查看仓库状态" class="headerlink" title="2.1 查看仓库状态"></a>2.1 查看仓库状态</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 工作区的状态</span></span><br><span class="line">$ git status</span><br><span class="line"><span class="comment"># 修改仓库文件 还未commit 查看区别</span></span><br><span class="line">$ git diff</span><br></pre></td></tr></table></figure>
+<h2 id="时光机"><a href="#时光机" class="headerlink" title="时光机"></a>时光机</h2><h3 id="查看仓库状态"><a href="#查看仓库状态" class="headerlink" title="查看仓库状态"></a>查看仓库状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 工作区的状态</span></span><br><span class="line">$ git status</span><br><span class="line"><span class="comment"># 修改仓库文件 还未commit 查看区别</span></span><br><span class="line">$ git diff</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-2-读取存档"><a href="#2-2-读取存档" class="headerlink" title="2.2 读取存档"></a>2.2 读取存档</h4><p>​    我们不断对仓库作出修改，这就产生一个个版本/存档，当我们出错了的时候，git允许我们回退到之前的版本。</p>
+<h3 id="读取存档"><a href="#读取存档" class="headerlink" title="读取存档"></a>读取存档</h3><p>​    我们不断对仓库作出修改，这就产生一个个版本/存档，当我们出错了的时候，git允许我们回退到之前的版本。</p>
 <ul>
 <li><p><strong>查看版本</strong></p>
 <p><code>git log</code></p>
@@ -436,7 +437,7 @@
 <p>其实就是HEAD指针在移动吧。</p>
 </li>
 </ul>
-<h4 id="2-2-工作区-暂存区-版本库"><a href="#2-2-工作区-暂存区-版本库" class="headerlink" title="2.2 工作区 暂存区 版本库"></a>2.2 工作区 暂存区 版本库</h4><p>​    <strong>工作区</strong>就是<code>git init</code>在的那个目录。</p>
+<h3 id="工作区-暂存区-版本库"><a href="#工作区-暂存区-版本库" class="headerlink" title="工作区 暂存区 版本库"></a>工作区 暂存区 版本库</h3><p>​    <strong>工作区</strong>就是<code>git init</code>在的那个目录。</p>
 <p>​    这个区里面有一个隐藏目录<code>.git</code>，但不算工作区，是<strong>版本库</strong>。</p>
 <p>​    隐藏目录里面有一个index文件（<strong>暂存区</strong>）。</p>
 <p>​    所谓add，就是将文件放到暂存区；所谓commit，就是将暂存区的所有文件都转移到当前分支.</p>
@@ -448,12 +449,13 @@
 </ul>
 </li>
 </ul>
-<h4 id="2-3-删除文件"><a href="#2-3-删除文件" class="headerlink" title="2.3 删除文件"></a>2.3 删除文件</h4><p>​    直接<code>rm</code>删除了工作区里面的文件，版本库的文件还在。</p>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>​    直接<code>rm</code>删除了工作区里面的文件，版本库的文件还在。</p>
 <ul>
 <li>如果真的要删：再删除暂存区的<code>git rm file</code>。然后提交到版本库<code>git commit -m &quot;&quot;</code></li>
 <li>如果不要删除：那就是将暂存区的导回来 <code>git checkout -- file  or  git restore file</code></li>
 </ul>
-<h2 id="3-远程仓库"><a href="#3-远程仓库" class="headerlink" title="3 远程仓库"></a>3 远程仓库</h2><p>​    在之前的章节里面，git仓库都是部署在本地电脑的。现在，我们尝试跨机器。实际上，我们是找一台机器当作服务器，一直开机，人们可以pull&amp;clone。github这个网站就是提供git仓库托管服务的，可以获得免费的远程仓库。</p>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p>​    在之前的章节里面，git仓库都是部署在本地电脑的。现在，我们尝试跨机器。实际上，我们是找一台机器当作服务器，一直开机，人们可以pull&amp;clone。github这个网站就是提供git仓库托管服务的，可以获得免费的远程仓库。</p>
+<p>​        <a href="https://zhuanlan.zhihu.com/p/20175919" target="_blank" rel="noopener">远程库和本地库的一些操作</a></p>
 <ul>
 <li><p>本地仓库和远程仓库之间的连接通过SSH加密：</p>
 <ul>
@@ -472,25 +474,26 @@
 <p>上一小节是从本地库到远程库。现在是由远程库到本地库。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#先在服务器（github）创建一个远程仓库</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#然后克隆到本地</span></span><br><span class="line">$ git <span class="built_in">clone</span> git@url <span class="comment">#使用SSH协议</span></span><br></pre></td></tr></table></figure>
 
+
+
 </li>
 </ul>
-<p><a href="https://zhuanlan.zhihu.com/p/20175919" target="_blank" rel="noopener">远程库和本地库的一些操作</a></p>
-<h2 id="4-分支管理"><a href="#4-分支管理" class="headerlink" title="4 分支管理"></a>4 分支管理</h2><p>​    并行开发，互不干扰，可以合并。</p>
-<h4 id="4-1-创建分支以及一些其他操作"><a href="#4-1-创建分支以及一些其他操作" class="headerlink" title="4.1 创建分支以及一些其他操作"></a>4.1 创建分支以及一些其他操作</h4><p>​    对于每一次提交（commit），git将其归档，这一条时间线就是一个分支。一般我们的最开始那个分支叫做<code>main（原来是master hh）</code>，版本库里面HEAD指向的其实是分支，也就是<code>HEAD-&gt;master-&gt;commit node</code>。</p>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p>​    并行开发，互不干扰，可以合并。</p>
+<h3 id="创建分支以及一些其他操作"><a href="#创建分支以及一些其他操作" class="headerlink" title="创建分支以及一些其他操作"></a>创建分支以及一些其他操作</h3><p>​    对于每一次提交（commit），git将其归档，这一条时间线就是一个分支。一般我们的最开始那个分支叫做<code>main（原来是master hh）</code>，版本库里面HEAD指向的其实是分支，也就是<code>HEAD-&gt;master-&gt;commit node</code>。</p>
 <p>​    每次提交，master分支向前伸展，线也就变长了。一旦创建一个新的分支dev，那么这个分支（指针）就会指向当前的提交点，再由HEAD指向dev，表明当前分支是dev。然后就让dev</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建分支</span></span><br><span class="line"><span class="comment"># -b 创建并且切换</span></span><br><span class="line">$ git checkout -b dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等价于</span></span><br><span class="line">$ git branch dev</span><br><span class="line">$ git checkout dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新版本还支持:	,也是创建并且切换</span></span><br><span class="line">$ git switch -c dev</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看分支</span></span><br><span class="line"><span class="comment"># 并且当前分支前面会标*</span></span><br><span class="line">$ git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并分支</span></span><br><span class="line"><span class="comment"># 先切回去</span></span><br><span class="line">$ git checkout main</span><br><span class="line"><span class="comment"># 再合并(到当前分支)</span></span><br><span class="line">$ git merge dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line"><span class="comment"># 注意需要先切换到别的分支</span></span><br><span class="line">$ git branch -d dev</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-2-分支合并冲突"><a href="#4-2-分支合并冲突" class="headerlink" title="4.2 分支合并冲突"></a>4.2 分支合并冲突</h4><blockquote>
+<h3 id="分支合并冲突"><a href="#分支合并冲突" class="headerlink" title="分支合并冲突"></a>分支合并冲突</h3><blockquote>
 <p>Fast-forward，换句话说，如果顺着一个分支走下去可以到达另一个分支的话，那么 Git 在合并两者时，只会简单地把指针右移，因为这种单线的历史分支不存在任何需要解决的分歧，所以这种合并过程可以称为快进（Fast forward）</p>
 </blockquote>
 <p>​    现在我们考虑这样一种情况：从main分支<code>switch -c</code>一个分支，然后我们对一个文本文件修改一次，提交到版本库；我们再切回来，又对这个文件修改，提交，然后合并分支。这样，这个文本文件就出问题了，该选哪个呢？</p>
 <p>​    这就需要我们手动做一些调整。也就是对冲突的文本进行编辑，然后提交到版本库。可以认为合并冲突的时候，不冲突的部分已经合并好了。</p>
 <p><code>git log --graph</code>可以查看合并情况</p>
 <p><a href="https://zhuanlan.zhihu.com/p/28137908" target="_blank" rel="noopener">合并分支的一些策略</a></p>
-<h4 id="4-3-保留合并历史"><a href="#4-3-保留合并历史" class="headerlink" title="4.3 保留合并历史"></a>4.3 保留合并历史</h4><blockquote>
+<h3 id="保留合并历史"><a href="#保留合并历史" class="headerlink" title="保留合并历史"></a>保留合并历史</h3><blockquote>
 <p>合并分支时，加上<code>--no-ff</code>参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而<code>fast forward</code>合并就看不出来曾经做过合并。</p>
 </blockquote>
-<h4 id="4-4-bug"><a href="#4-4-bug" class="headerlink" title="4.4 bug"></a>4.4 bug</h4><p>​    git的分支，迅捷有力，有bug，直接开一个branch来修复。</p>
+<h3 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h3><p>​    git的分支，迅捷有力，有bug，直接开一个branch来修复。</p>
 <ul>
 <li><p><strong>stash</strong></p>
 <p>假如我们要切到另外一个分支去解决bug，但是当前分支工作区文件并没有改好，我们先使用<code>git stash</code>来保存，使得工作区clean。</p>
@@ -507,9 +510,9 @@
 <p><code>git cherry-pick commit_id</code>可以方便地将修复bug部分的提交施加在当前分支上。</p>
 </li>
 </ul>
-<h4 id="4-5-功能分支"><a href="#4-5-功能分支" class="headerlink" title="4.5 功能分支"></a>4.5 功能分支</h4><p>​    每添加一个新的功能，建议新增一个分支<code>feature</code></p>
+<h3 id="功能分支"><a href="#功能分支" class="headerlink" title="功能分支"></a>功能分支</h3><p>​    每添加一个新的功能，建议新增一个分支<code>feature</code></p>
 <p>​    如果功能弃用，删除之，需要注意：没merge的分支需要强制删除<code>git branch -D ?</code></p>
-<h2 id="5-标签"><a href="#5-标签" class="headerlink" title="5 标签"></a>5 标签</h2><ul>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
 <li><p>切换到需要打标签的分支，然后：<code>git tag &quot;tag_name&quot; (commit id 默认最新的)</code></p>
 <ul>
 <li>-a    tag_name</li>
@@ -533,7 +536,7 @@
 </li>
 </ul>
 <p>​    </p>
-<h2 id="6-关于git存储原理浅究"><a href="#6-关于git存储原理浅究" class="headerlink" title="6 关于git存储原理浅究"></a>6 关于git存储原理浅究</h2><p>​    如前文所述，本地库根目录下有一个隐藏的文件夹<code>.git</code>，里面存储了版本库信息。</p>
+<h2 id="关于git存储原理浅究"><a href="#关于git存储原理浅究" class="headerlink" title="关于git存储原理浅究"></a>关于git存储原理浅究</h2><p>​    如前文所述，本地库根目录下有一个隐藏的文件夹<code>.git</code>，里面存储了版本库信息。</p>
 <ul>
 <li><p><strong>git里面的objects</strong></p>
 <p>假设完成一次add&amp;&amp;commit：</p>
@@ -665,7 +668,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-引入"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1  引入</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-时光机"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2 时光机</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-1-查看仓库状态"><span class="toc-nav-number">2.0.1.</span> <span class="toc-nav-text">2.1 查看仓库状态</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-2-读取存档"><span class="toc-nav-number">2.0.2.</span> <span class="toc-nav-text">2.2 读取存档</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-2-工作区-暂存区-版本库"><span class="toc-nav-number">2.0.3.</span> <span class="toc-nav-text">2.2 工作区 暂存区 版本库</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2-3-删除文件"><span class="toc-nav-number">2.0.4.</span> <span class="toc-nav-text">2.3 删除文件</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-远程仓库"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3 远程仓库</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-分支管理"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4 分支管理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#4-1-创建分支以及一些其他操作"><span class="toc-nav-number">4.0.1.</span> <span class="toc-nav-text">4.1 创建分支以及一些其他操作</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#4-2-分支合并冲突"><span class="toc-nav-number">4.0.2.</span> <span class="toc-nav-text">4.2 分支合并冲突</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#4-3-保留合并历史"><span class="toc-nav-number">4.0.3.</span> <span class="toc-nav-text">4.3 保留合并历史</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#4-4-bug"><span class="toc-nav-number">4.0.4.</span> <span class="toc-nav-text">4.4 bug</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#4-5-功能分支"><span class="toc-nav-number">4.0.5.</span> <span class="toc-nav-text">4.5 功能分支</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-标签"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5 标签</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-关于git存储原理浅究"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6 关于git存储原理浅究</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#引入"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">引入</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#时光机"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">时光机</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#查看仓库状态"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">查看仓库状态</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#读取存档"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">读取存档</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#工作区-暂存区-版本库"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">工作区 暂存区 版本库</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#删除文件"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">删除文件</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#远程仓库"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">远程仓库</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#分支管理"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">分支管理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#创建分支以及一些其他操作"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">创建分支以及一些其他操作</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#分支合并冲突"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">分支合并冲突</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#保留合并历史"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">保留合并历史</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#bug"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">bug</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#功能分支"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">功能分支</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#标签"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">标签</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#关于git存储原理浅究"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">关于git存储原理浅究</span></a></li></ol>
         
         </div>
       </aside>
