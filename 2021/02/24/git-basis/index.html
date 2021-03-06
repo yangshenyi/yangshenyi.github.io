@@ -195,14 +195,14 @@
 
           
           <li>
-            <a href="/categories/">Categories</a>
+            <a href="/archive/">Archives</a>
           </li>
           
           
 
           
           <li>
-            <a href="/archive/">Archives</a>
+            <a href="/categories/">Categories</a>
           </li>
           
           
@@ -396,7 +396,6 @@
 <li>可以看出，git的世界里面，每一台机器都有自己的版本库，都可以有一个标识：</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装git以后</span></span><br><span class="line"><span class="comment"># --global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置</span></span><br><span class="line">$ git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p><strong>版本库</strong></p>
 <blockquote>
@@ -405,7 +404,6 @@
 <ul>
 <li><p><strong>创建一个版本库</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">		   <span class="comment"># 开一个文件夹</span></span><br><span class="line">$ git init <span class="comment"># Initialized empty Git repositor</span></span><br></pre></td></tr></table></figure>
-
 <p>当前目录还会有一个隐藏文件夹<code>.git</code>（可以用<code>ls -ah</code>查看），里面有Git跟踪管理版本库的信息。</p>
 </li>
 <li><p><strong>添加文件到版本库</strong></p>
@@ -413,13 +411,11 @@
 <p>首先这里再明确一下，所有的版本控制系统，其实只能跟踪文本文件的改动，比如TXT文件，网页，所有的程序代码等等，Git也不例外。版本控制系统可以告诉你每次的改动，比如在第5行加了一个单词“Linux”，在第8行删了一个单词“Windows”。而图片、视频这些二进制文件，虽然也能由版本控制系统管理，但没法跟踪文件的变化，只能把二进制文件每次改动串起来，也就是只知道图片从100KB改成了120KB，但到底改了啥，版本控制系统不知道，也没法知道。</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加文件到暂存区 `git add .` 添加当前目录所有文件到暂存区</span></span><br><span class="line">$ git add ?</span><br><span class="line"><span class="comment"># 把文件提交到仓库。-m 参数 后面接本次提交的一些说明</span></span><br><span class="line">$ git commit -m <span class="string">"???"</span></span><br><span class="line"><span class="comment">#可以多次add 一次性commit</span></span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
 </li>
 </ul>
 <h2 id="时光机"><a href="#时光机" class="headerlink" title="时光机"></a>时光机</h2><h3 id="查看仓库状态"><a href="#查看仓库状态" class="headerlink" title="查看仓库状态"></a>查看仓库状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 工作区的状态</span></span><br><span class="line">$ git status</span><br><span class="line"><span class="comment"># 修改仓库文件 还未commit 查看区别</span></span><br><span class="line">$ git diff</span><br></pre></td></tr></table></figure>
-
 <h3 id="读取存档"><a href="#读取存档" class="headerlink" title="读取存档"></a>读取存档</h3><p>​    我们不断对仓库作出修改，这就产生一个个版本/存档，当我们出错了的时候，git允许我们回退到之前的版本。</p>
 <ul>
 <li><p><strong>查看版本</strong></p>
@@ -433,7 +429,6 @@
 <li><p><strong>想穿回来</strong></p>
 <p>回去以后，log一看，后面的不见了。如果还记得版本号的话（*—*）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard commit id</span><br><span class="line"></span><br><span class="line"><span class="comment"># 即使不记得也没关系 查看历史</span></span><br><span class="line">$ git reflog</span><br></pre></td></tr></table></figure>
-
 <p>其实就是HEAD指针在移动吧。</p>
 </li>
 </ul>
@@ -465,7 +460,6 @@
 </li>
 <li><p>关联远程仓库 推送内容</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin(库的映射) url of remote rep</span><br><span class="line">$ git push -u origin master</span><br><span class="line"><span class="comment">## 以后推送内容</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作，而SVN在没有联网的时候是拒绝干活的！当有网络的时候，再把本地提交推送一下就完成了同步</p>
 </blockquote>
@@ -473,16 +467,12 @@
 <li><p>从远程仓库克隆</p>
 <p>上一小节是从本地库到远程库。现在是由远程库到本地库。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#先在服务器（github）创建一个远程仓库</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#然后克隆到本地</span></span><br><span class="line">$ git <span class="built_in">clone</span> git@url <span class="comment">#使用SSH协议</span></span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ul>
 <h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p>​    并行开发，互不干扰，可以合并。</p>
 <h3 id="创建分支以及一些其他操作"><a href="#创建分支以及一些其他操作" class="headerlink" title="创建分支以及一些其他操作"></a>创建分支以及一些其他操作</h3><p>​    对于每一次提交（commit），git将其归档，这一条时间线就是一个分支。一般我们的最开始那个分支叫做<code>main（原来是master hh）</code>，版本库里面HEAD指向的其实是分支，也就是<code>HEAD-&gt;master-&gt;commit node</code>。</p>
 <p>​    每次提交，master分支向前伸展，线也就变长了。一旦创建一个新的分支dev，那么这个分支（指针）就会指向当前的提交点，再由HEAD指向dev，表明当前分支是dev。然后就让dev</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建分支</span></span><br><span class="line"><span class="comment"># -b 创建并且切换</span></span><br><span class="line">$ git checkout -b dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等价于</span></span><br><span class="line">$ git branch dev</span><br><span class="line">$ git checkout dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新版本还支持:	,也是创建并且切换</span></span><br><span class="line">$ git switch -c dev</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看分支</span></span><br><span class="line"><span class="comment"># 并且当前分支前面会标*</span></span><br><span class="line">$ git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并分支</span></span><br><span class="line"><span class="comment"># 先切回去</span></span><br><span class="line">$ git checkout main</span><br><span class="line"><span class="comment"># 再合并(到当前分支)</span></span><br><span class="line">$ git merge dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line"><span class="comment"># 注意需要先切换到别的分支</span></span><br><span class="line">$ git branch -d dev</span><br></pre></td></tr></table></figure>
-
 <h3 id="分支合并冲突"><a href="#分支合并冲突" class="headerlink" title="分支合并冲突"></a>分支合并冲突</h3><blockquote>
 <p>Fast-forward，换句话说，如果顺着一个分支走下去可以到达另一个分支的话，那么 Git 在合并两者时，只会简单地把指针右移，因为这种单线的历史分支不存在任何需要解决的分歧，所以这种合并过程可以称为快进（Fast forward）</p>
 </blockquote>
@@ -513,14 +503,12 @@
 <h3 id="功能分支"><a href="#功能分支" class="headerlink" title="功能分支"></a>功能分支</h3><p>​    每添加一个新的功能，建议新增一个分支<code>feature</code></p>
 <p>​    如果功能弃用，删除之，需要注意：没merge的分支需要强制删除<code>git branch -D ?</code></p>
 <h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
-<li><p>切换到需要打标签的分支，然后：<code>git tag &quot;tag_name&quot; (commit id 默认最新的)</code></p>
-<ul>
+<li>切换到需要打标签的分支，然后：<code>git tag &quot;tag_name&quot; (commit id 默认最新的)</code><ul>
 <li>-a    tag_name</li>
 <li>-m    注释</li>
 </ul>
 </li>
-<li><p><code>git tag</code>查看该分支所有标签</p>
-</li>
+<li><code>git tag</code>查看该分支所有标签</li>
 <li><p><code>git show tag_name</code>查看该标签信息</p>
 </li>
 <li><p><strong>删除</strong></p>
@@ -539,9 +527,6 @@
 <h2 id="关于git存储原理浅究"><a href="#关于git存储原理浅究" class="headerlink" title="关于git存储原理浅究"></a>关于git存储原理浅究</h2><p>​    如前文所述，本地库根目录下有一个隐藏的文件夹<code>.git</code>，里面存储了版本库信息。</p>
 <h3 id="git里面的objects"><a href="#git里面的objects" class="headerlink" title="git里面的objects:"></a><strong>git里面的objects</strong>:</h3><p>假设完成一次add&amp;&amp;commit：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls .git/objects</span><br><span class="line">4c/  58/  c2/  f5/  info/  pack/</span><br></pre></td></tr></table></figure>
-
-
-
 <ul>
 <li><p><strong>blob</strong></p>
 <p>当我们add一个工作区的文件到暂存库，<code>.git/objects</code>目录里面就会产生一个该类型的对象。</p>
@@ -559,10 +544,8 @@
 </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tree</span></span><br><span class="line">$ git cat-file -t 4caa</span><br><span class="line">tree</span><br><span class="line"></span><br><span class="line">$ git cat-file -p 4caa</span><br><span class="line">100644 blob 58c9bdf9d017fcd178dc8c073cbfcbb7ff240d6c    a.txt</span><br><span class="line">100644 blob c200906efd24ec5e783bee7f23b5d7c941b0c12c    b.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># commit</span></span><br><span class="line">$ git cat-file -t f518</span><br><span class="line">commit</span><br><span class="line"></span><br><span class="line">$ git cat-file -p f518</span><br><span class="line">tree 4caaa1a9ae0b274fba9e3675f9ef071616e5b209</span><br><span class="line">author yangshenyi &lt;2437802588@qq.com&gt; 1614174573 +0800</span><br><span class="line">committer yangshenyi &lt;2437802588@qq.com&gt; 1614174573 +0800</span><br><span class="line"></span><br><span class="line">[+] init</span><br></pre></td></tr></table></figure>
-
 <h3 id="git里面的分支存储"><a href="#git里面的分支存储" class="headerlink" title="git里面的分支存储"></a><strong>git里面的分支存储</strong></h3><p>​    我们都知道，git里面的分支操作是很快的，为什么呢？因为分支本身只是一个“类指针”，不同于C里面存储逻辑地址的指针，这里的指针存储的是commit对象的SHA1值。所以所谓分支只是指向不同提交节点的“指针”。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .git/HEAD</span></span><br><span class="line"><span class="comment"># 指向当前分支</span></span><br><span class="line">$ cat .git/HEAD</span><br><span class="line">ref: refs/heads/master</span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们来看看当前分支文件存的是什么</span></span><br><span class="line">$ cat .git/refs/heads/master</span><br><span class="line">f518a444791fa19a5b927145e67f058eb8d7bba4</span><br><span class="line"><span class="comment">#刚好是当前的commit对象的SHA1</span></span><br></pre></td></tr></table></figure>
-
 <p>这样，结合git的三个区，较容易理解：当我们修改工作区的文件时候，.git里面没有变化；当我们add时候，一方面增加了相应的blob对象，一方面改变了<code>.git/index</code>（或许是所谓暂存区）的内容；当我们commit的时候，我们增加了相应的tree和commit对象，并且将当前分支和HEAD都改变指向到最近的commit对象。而创建新的分支也不过是在<code>.git/refs里面增加了新的文件</code>。</p>
 <blockquote>
 <p>注：</p>
@@ -574,6 +557,10 @@
         <hr>
         <!-- Pager -->
         <ul class="pager">
+          
+          <li class="previous">
+            <a href="/2021/03/06/AVL-And-Splay-Tree-0/" data-toggle="tooltip" data-placement="top" title="AVL-And-Splay-Tree">&larr; Previous Post</a>
+          </li>
           
           
           <li class="next">

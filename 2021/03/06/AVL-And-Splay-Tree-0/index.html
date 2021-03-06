@@ -71,12 +71,12 @@
 
   <!-- Pygments Highlight CSS -->
   
-<link rel="stylesheet" href="../css/highlight.css">
-<link rel="stylesheet" href="../css/widget.css">
-<link rel="stylesheet" href="../css/rocket.css">
-<link rel="stylesheet" href="../css/signature.css">
-<link rel="stylesheet" href="../css/catalog.css">
-<link rel="stylesheet" href="../css/livemylife.css">
+<link rel="stylesheet" href="../../../../css/highlight.css">
+<link rel="stylesheet" href="../../../../css/widget.css">
+<link rel="stylesheet" href="../../../../css/rocket.css">
+<link rel="stylesheet" href="../../../../css/signature.css">
+<link rel="stylesheet" href="../../../../css/catalog.css">
+<link rel="stylesheet" href="../../../../css/livemylife.css">
 
 
   
@@ -133,10 +133,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yangshenyi.github.io/categories/">
+  <link rel="canonical" href="http://yangshenyi.github.io/2021/03/06/AVL-And-Splay-Tree-0/">
   <title>
     
-    Categories - My Lapuda
+    AVL-And-Splay-Tree - My Lapuda
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -274,8 +274,8 @@
 
   <style type="text/css">
     header.intro-header {
-       /*page*/
-        background-image: url('/img/header_img/categories_bg.jpg');
+       /*post*/
+        background-image: url('head.png');
       
     }
 
@@ -297,10 +297,42 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Categories</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">Hi , here is Categories ....</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Data Structure" title="Data Structure">Data Structure</a>
+              
+            </div>
+            <h1>AVL-And-Splay-Tree</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by yangshenyi on
+              2021-03-06
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">4</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">663</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -341,93 +373,257 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-	<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <!-- 标签云 -->
-      <div id='tag_cloud' class="tags">
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><ul>
+<li><p>It is designed to speed up dynamic searching(with insertion and deletion all the time thus the data set is changing)</p>
+</li>
+<li><p>And we have learned such a data structure named BST before, which is used for dynamic searching. Specially, when the tree is Complete BST, the operations mentioned above cost O(height(tree)), that is O(log N). <strong>But if the tree is not a Complete BST, the height can be bad</strong>. So the tree structure depends on the input sequence, which impacts on the performance then.</p>
+</li>
+<li><p>Obviously, we want a good tree with “suitable” structure. And it is apparent that we can’t adjust the input sequence to get such a tree cause the process is dynamic. <strong>The solution is to keep the tree balanced dynamically. That is to say, when we detect a added node making the tree unbalanced, we adjust accordingly.</strong>  </p>
+<p>So-called AVL tree appears.</p>
+</li>
+</ul>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><script type="math/tex; mode=display">
+\begin{align*}\label{2}
+&  A \ tree \ is \ a \ AVL \ Tree\  iif\ it\  is\ empty \ or  \\
+
+& \quad 1.\quad TL\ and\ TR\ is\ a\ AVL\ \ tree \\
+& \quad 2.\quad |h_L-h_R|\leq1
+\end{align*}</script><ul>
+<li><p><strong>balanced factor</strong></p>
+<p>Here we introduce certain concept called BF. </p>
+<p>$ BF(node)\ = \  h_L\ - \ h_R. \\\ In\ an\ AVL\ Tree,\ BF(node)\ = \ -1,\ 0\ or\ 1$</p>
+<p>And we can distinguish an AVL Tree by calculate the BF of each node in a bottom-up way. </p>
+<blockquote>
+<p>确切来讲，只需要沿着增加的那个节点到root的路径，去寻找最小的不平衡子树，那个子树的root，是key</p>
+</blockquote>
+<p><em>NOTE</em>: $h_L$, the height of left_subtree</p>
+<blockquote>
+<p> minimum number of nodes: S(h) = S(h-1) + S(h-2) +1</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="operation"><a href="#operation" class="headerlink" title="operation"></a>operation</h2><p>trouble maker and <strong>trouble finder</strong>, according which we classify the bad-situation and do some operation. It is rotation. But one thing should be our attention that the edge is rotated but the structure of the rotated subtree is not changed.</p>
+<p><strong>And magically, after rotation, it is still a BST.</strong>  </p>
+<h4 id="single-rotation"><a href="#single-rotation" class="headerlink" title="single rotation"></a>single rotation</h4><ul>
+<li><p><strong>RR</strong></p>
+<p><img src="RR.png" alt="RR_rotation"></p>
+</li>
+<li><p><strong>LL</strong></p>
+<p><img src="LL.png" alt="LL_rotation"></p>
+</li>
+</ul>
+<h4 id="double-rotation"><a href="#double-rotation" class="headerlink" title="double rotation"></a>double rotation</h4><p>​    it can be seen as two single rotations</p>
+<ul>
+<li><p><strong>LR</strong></p>
+<p><img src="LR.png" alt="LR_rotation"></p>
+</li>
+<li><p><strong>RL</strong></p>
+<p><img src="RL.png" alt="RL_rotation"></p>
+</li>
+</ul>
+<h1 id="Splay-Tree"><a href="#Splay-Tree" class="headerlink" title="Splay Tree"></a>Splay Tree</h1><h2 id="Background-1"><a href="#Background-1" class="headerlink" title="Background"></a>Background</h2><ul>
+<li><p><strong>Target</strong></p>
+<p>AVL Tree commands too much and we want a weaker structure, or rather, a more general one. </p>
+<p>Any M consecutive tree operations starting from an empty tree take at most O(M log N) time.</p>
+<p>Obviously, AVL Tree is a special kind of Splay Tree cause each operation on AVL Tree need O(log N) time</p>
+</li>
+<li><p><strong>amortized time(摊还时间)</strong></p>
+<p>Single operation on Splay Tree is uncertain but the amortized time of Splay Tree is O(log N). </p>
+</li>
+</ul>
+<h2 id="Idea-and-operation"><a href="#Idea-and-operation" class="headerlink" title="Idea and operation"></a>Idea and operation</h2><p>​    To make the amortized time O(log N), an idea is that:</p>
+<ul>
+<li><p>After a node is <strong>accessed</strong>, <strong>it is pushed to the root</strong> <strong>by a series of AVL tree rotation</strong>. It is weaker than AVL tree but uses the AVL Rotations. Here are the proper operations:</p>
+<p>​    <img src="Splay.png" alt="Splay"></p>
+</li>
+<li><p><strong>deletion</strong></p>
+<ol>
+<li><p>Find node</p>
+</li>
+<li><p>remove node </p>
+</li>
+<li><p>select a node from l_subtree(max one) or r_subtree(min one) to be the new_root.</p>
+<p>​    etc:</p>
+<ol>
+<li>find max one in l_tree</li>
+<li>make $T_R$ the right kid of the node found before</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="Amortized-Analysis"><a href="#Amortized-Analysis" class="headerlink" title="Amortized Analysis"></a>Amortized Analysis</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Any M consecutive operations take at most ? time.</p>
+<p>?/M == Amortized time bound</p>
+<p>worst-case bound &gt;= amortized bound &gt;= average-case bound</p>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p>given case like this:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># we do some operations on the stack</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MultiPop</span><span class="params">(<span class="keyword">int</span> k, Stack S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (!IsEmpty(S) &amp;&amp; k &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        Pop(S);</span><br><span class="line">        k--;</span><br><span class="line">    &#125; <span class="comment">/* end while-loop */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Aggregate-analysis-总和"><a href="#Aggregate-analysis-总和" class="headerlink" title="Aggregate analysis(总和)"></a>Aggregate analysis(总和)</h3><p>​    For any sequence of n operations, time won’t exceed T(n), a worst-case time. In that case, the average cost, or amortized cost is T(n)/n.</p>
+<p>​    Amortized time is: O(((n-1) + (n-1))/n) = O(1)</p>
+<h3 id="accounting-method"><a href="#accounting-method" class="headerlink" title="accounting method"></a>accounting method</h3><ul>
+<li><p>Saving account!</p>
+<p>amortized time     Vs    actual time cost</p>
+<p>credit is stored to pay for later use</p>
+</li>
+<li><p>T = sum of amortized time &gt;= sum of actual time_i</p>
+<p>and T/n may be a suitable upper bound of amortized time</p>
+</li>
+</ul>
+<h3 id="potential-method"><a href="#potential-method" class="headerlink" title="potential method"></a>potential method</h3><p>​    </p>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/2021/02/24/git-basis/" data-toggle="tooltip" data-placement="top" title="git_basis">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
         
-        <a href="#informal essay" title="informal essay" rel="1">informal essay</a>
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            Hope you like this blog or find it useful for you!If the images or something else used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+          </p>
+        </div>
+        <!-- tip end -->
         
-        <a href="#Data Structure &amp;&amp; Algorithm AVL trees" title="Data Structure &amp;&amp; Algorithm AVL trees" rel="1">Data Structure &amp;&amp; Algorithm AVL trees</a>
+
         
-        <a href="#git" title="git" rel="1">git</a>
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
         
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
       </div>
 
-      <!-- 标签列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="informal essay">
-          <span class="tag-text">informal essay</span>
-        </span>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/02/18/A-New-World/">
-            <h2 class="post-title">
-              A-New-World
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="Data Structure &amp;&amp; Algorithm AVL trees">
-          <span class="tag-text">Data Structure &amp;&amp; Algorithm AVL trees</span>
-        </span>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/03/06/AVL-And-Splay-Tree-0/">
-            <h2 class="post-title">
-              AVL-And-Splay-Tree
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="git">
-          <span class="tag-text">git</span>
-        </span>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/02/24/git-basis/">
-            <h2 class="post-title">
-              git_basis
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-      </div>
-      
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
 
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Background"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Background</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Definition"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Definition</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#operation"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">operation</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#single-rotation"><span class="toc-nav-number">3.0.1.</span> <span class="toc-nav-text">single rotation</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#double-rotation"><span class="toc-nav-number">3.0.2.</span> <span class="toc-nav-text">double rotation</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Splay-Tree"><span class="toc-nav-number"></span> <span class="toc-nav-text">Splay Tree</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Background-1"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Background</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Idea-and-operation"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Idea and operation</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Amortized-Analysis"><span class="toc-nav-number"></span> <span class="toc-nav-text">Amortized Analysis</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Introduction"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Introduction</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Method"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Method</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Aggregate-analysis-总和"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Aggregate analysis(总和)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#accounting-method"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">accounting method</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#potential-method"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">potential method</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Data Structure" title="Data Structure">Data Structure</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+      </div>
     </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 	<!-- Footer (contains ThemeColor、viewer) -->
