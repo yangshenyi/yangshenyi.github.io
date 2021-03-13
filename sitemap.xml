@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yangshenyi.github.io/2021/03/13/python-basic-grammar/</loc>
+    
+    <lastmod>2021-03-13</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yangshenyi.github.io/2021/03/13/computer-organization-and-design-Preface/</loc>
     
     <lastmod>2021-03-13</lastmod>
@@ -95,13 +102,6 @@
   </url>
   
   <url>
-    <loc>http://yangshenyi.github.io/tags/git/</loc>
-    <lastmod>2021-03-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yangshenyi.github.io/tags/hardware/</loc>
     <lastmod>2021-03-13</lastmod>
     <changefreq>daily</changefreq>
@@ -110,6 +110,20 @@
   
   <url>
     <loc>http://yangshenyi.github.io/tags/riscv/</loc>
+    <lastmod>2021-03-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangshenyi.github.io/tags/python/</loc>
+    <lastmod>2021-03-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangshenyi.github.io/tags/git/</loc>
     <lastmod>2021-03-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -132,14 +146,28 @@
   </url>
   
   <url>
-    <loc>http://yangshenyi.github.io/categories/git/</loc>
+    <loc>http://yangshenyi.github.io/categories/computer-organization-and-design/</loc>
     <lastmod>2021-03-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yangshenyi.github.io/categories/computer-organization-and-design/</loc>
+    <loc>http://yangshenyi.github.io/categories/python/</loc>
+    <lastmod>2021-03-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangshenyi.github.io/categories/python/language-grammar/</loc>
+    <lastmod>2021-03-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangshenyi.github.io/categories/git/</loc>
     <lastmod>2021-03-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

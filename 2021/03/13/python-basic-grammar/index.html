@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-xxxxxx-xx"></script>
+  <script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-xxxxxx-xx');
+  </script>
+  
+
+  <!-- Baidu Tongji -->
+  
+  <script type="text/javascript">
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  
+
+  <!-- Baidu Push -->
+  
+  <script>
+    (function() {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+  
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc" />
+  <meta name="baidu-site-verification" content="PpzM9WxOJU" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="It is blog of a IS student, who wants to record something" />
+  <meta name="keyword" content="cyber security,computer science,I,blog,Blog" />
+  <link rel="shortcut icon" href="/img/avatar/icon.jpg" />
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css" />
+
+  <!-- Pygments Highlight CSS -->
+  
+<link rel="stylesheet" href="../../../../css/highlight.css">
+<link rel="stylesheet" href="../../../../css/widget.css">
+<link rel="stylesheet" href="../../../../css/rocket.css">
+<link rel="stylesheet" href="../../../../css/signature.css">
+<link rel="stylesheet" href="../../../../css/catalog.css">
+<link rel="stylesheet" href="../../../../css/livemylife.css">
+
+
+  
+  <!-- wave start -->
+  <link rel="stylesheet" href="/css/wave.css" />
+  <!-- wave end -->
+  
+
+  
+  <!-- top start (article top hot config) -->
+  <link rel="stylesheet" href="/css/top.css" />
+  <!-- top end -->
+  
+
+  
+  <!-- ThemeColor start -->
+  <link rel="stylesheet" href="/css/scroll.css" />
+  <!-- ThemeColor end -->
+  
+
+  
+  <!-- viewer start (Picture preview) -->
+  <link rel="stylesheet" href="/css/viewer.min.css" />
+  <!-- viewer end -->
+  
+
+  
+  <!-- Search start -->
+  <link rel="stylesheet" href="/css/search.css" />
+  <!-- Search end -->
+  
+
+  
+  <!-- ThemeColor start -->
+  <link rel="stylesheet" href="/css/themecolor.css" />
+  <!-- ThemeColor end -->
+  
+
+  
+
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+    href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="http://yangshenyi.github.io/2021/03/13/python-basic-grammar/">
+  <title>
+    
+    python-basic-grammar - My Lapuda
+    
+  </title>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<!-- hack iOS CSS :active style -->
+
+<body ontouchstart="" class="body--home">
+	<!-- ThemeColor -->
+	
+	<!-- ThemeColor -->
+<!-- <div class="toggle" onclick="document.body.classList.toggle('body--dark')">Switch Color</div> -->
+
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons bright-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+
+	
+
+	<!-- Gitter -->
+	
+
+	<!-- Navigation (contains search)-->
+	<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">YangShenyi&#39;s Laputa</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">Home</a>
+          </li>
+
+          
+
+          
+          
+
+          
+          <li>
+            <a href="/archive/">Archives</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/categories/">Categories</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/tags/">Tags</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          
+          
+
+          
+          <li><a class="popup-trigger" title="Search"><span class="search-icon"></span>Search</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+
+<script>
+  // Drop Bootstarp low-performance Navbar
+  // Use customize navbar with high-quality material design animation
+  // in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+	<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    header.intro-header {
+       /*post*/
+        background-image: url('');
+      
+    }
+
+    
+      #signature {/*signature*/
+        background-image: url('/img/signature/signature.png');
+      }
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#python" title="python">python</a>
+              
+            </div>
+            <h1>python-basic-grammar</h1>
+            <h2 class="subheading">待补充</h2>
+            <span class="meta">
+              Posted by yangshenyi on
+              2021-03-13
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">23</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">6.5k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+	<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>python是一种<strong>面向对象</strong>的<strong>解释型</strong>语言。</p>
+<blockquote>
+<p>Beautiful is better than ugly.</p>
+</blockquote>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><p>python中一切皆为对象。 </p>
+<p>我们通过描述属性（特征）和行为来描述一个对象的。比如家里的小狗，它的颜色，大小，年龄， 体重等是它的属性或特征。它会汪汪叫，会摇尾巴等是它的行为。 我们在描述一个真实对象（物体）时包括两个方面： 它可以做什么（行为） 它是什么样的（属性或特征）。 </p>
+<p>在python中，一个对象的特征也称为属性（attribute）。它所具有的行为也称为方法（method）</p>
+<h4 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h4><p><strong>面向对象编程：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1. 导入各种外部库</span><br><span class="line">2. 设计各种全局变量</span><br><span class="line">3. 决定你要的类</span><br><span class="line">4. 给每个类提供完整的一组操作</span><br><span class="line">5. 明确地使用继承来表现不同类之间的共同点</span><br><span class="line">6. 根据需要，决定是否写一个main函数作为程序入口</span><br><span class="line"></span><br><span class="line">类(Class): 用来描述具有相同属性和方法的对象的集合。它定义了该集合中每个对象所共有的属性和方法。其中的对象被称作类的实例。</span><br><span class="line">实例：也称对象。通过类定义的初始化方法，赋予具体的值，成为一个”有血有肉的实体”。</span><br><span class="line">实例化：创建类的实例的过程或操作。</span><br><span class="line">实例变量：定义在实例中的变量，只作用于当前实例。</span><br><span class="line">类变量：类变量是所有实例公有的变量。类变量定义在类中，但在方法体之外。</span><br><span class="line">数据成员：类变量、实例变量、方法、类方法、静态方法和属性等的统称。</span><br><span class="line">方法：类中定义的函数。</span><br><span class="line">静态方法：不需要实例化就可以由类执行的方法</span><br><span class="line">类方法：类方法是将类本身作为对象进行操作的方法。</span><br><span class="line">方法重写：如果从父类继承的方法不能满足子类的需求，可以对父类的方法进行改写，这个过程也称override。</span><br><span class="line">封装：将内部实现包裹起来，对外透明，提供api接口进行调用的机制</span><br><span class="line">继承：即一个派生类（derived class）继承父类（base class）的变量和方法。</span><br><span class="line">多态：根据对象类型的不同以不同的方式进行处理。</span><br></pre></td></tr></table></figure>
+<p><a href="https://zhuanlan.zhihu.com/p/61042358" target="_blank" rel="noopener">关于python的讲解</a></p>
+<h4 id="一些基本常识"><a href="#一些基本常识" class="headerlink" title="一些基本常识"></a>一些基本常识</h4><ul>
+<li><p>标识符</p>
+<p>数字、字母、下划线，不能以数字开头；区分<strong>大小写</strong>；不能和<strong>关键字</strong>重合</p>
+<ul>
+<li>对于交互式的解释器。输入help()，输入keywords，查看关键字</li>
+</ul>
+</li>
+<li><p>常量和变量</p>
+<p>变量名字是引用而不是对象本身；变量和常量都是对象</p>
+<blockquote>
+<p>变量是可以赋给值的<strong>标签</strong>，也可以说变量指向特定的值。</p>
+<p>常量类似于变量，但其值在程序的整个生命周期内保持不变。Python没有内置的常量类型，但<strong>Python程序员会使用全大写来指出应将某个变量 视为常量，其值应始终不变</strong></p>
+</blockquote>
+<ul>
+<li>id() 内置函数 用来显示对象的地址</li>
+</ul>
+</li>
+<li><p><code>python</code>中的变量。内存释放是自动的。每一个内存中的对象，对于若干引用，存在一个count，当所有的引用无了，count=0，对象被清除。</p>
+<p><code>python</code>的引用比较奇特，是动态的，不是C++那样，一旦创建关联以后就不能改了。在函数调用里面，应该就是实参、形参这些名字引用关联到一个对象。对于可变对象，那就相当于指向一个对象。修改以后还是一个；对于不可变对象诸如整数、字符串，每一次修改，是重新找了一个对象，那就没有关联。</p>
+<p>运行中，名字不需要存储。名字是给编译器看的。深入到汇编层面，程序就是指令，名字已经化为地址。</p>
+</li>
+<li><p>输入输出</p>
+<ul>
+<li><p>输入 input() </p>
+<p>接受一个字符串。可以用一个变量接受，变量自动为字符串类型<code>a=input()</code></p>
+<ul>
+<li><p><code>input</code>有一个参数，里面是输入的提示符。</p>
+</li>
+<li><p>如果要输入整型，在前面加<code>int()</code>强制转换。</p>
+</li>
+<li>可以用<code>split()</code>函数在一行输入多个值。<code>m,n=input().split()</code></li>
+</ul>
+</li>
+<li><p>输出print()</p>
+<ul>
+<li>参数是输出的值</li>
+<li>在函数参数中增加使用<code>end=&#39; &#39;</code>使得结尾不再是默认的换行</li>
+</ul>
+</li>
+<li><p>==格式化输出==</p>
+<p><code>format()</code>字符串格式化输出函数，是字符串的method。</p>
+<p><a href="https://www.cnblogs.com/fat39/p/7159881.html" target="_blank" rel="noopener">python格式输出限定符说明</a></p>
+<blockquote>
+<p>在python3.6以后，可以直接使用f”{}{}”来格式化输出</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="程序编写初步"><a href="#程序编写初步" class="headerlink" title="程序编写初步"></a>程序编写初步</h2><h4 id="基本（内置）数据类型"><a href="#基本（内置）数据类型" class="headerlink" title="基本（内置）数据类型"></a>基本（内置）数据类型</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类型名字</th>
+<th>描述</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>浮点数</td>
+<td></td>
+<td>存在四舍五入误差。科学计数法 e 前后不能空，后面是整数。</td>
+</tr>
+<tr>
+<td>复数</td>
+<td>j 自动识别</td>
+<td>两个部分</td>
+</tr>
+<tr>
+<td>整数</td>
+<td>只含数字的序列</td>
+<td>运算精确。0不能放在首位。0B/0O/0X。//整除 **求幂。整数除法得到小数结果</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td></td>
+<td>‘ ’或者“ ”括起来的文本</td>
+</tr>
+<tr>
+<td>布尔值</td>
+<td></td>
+<td>True or False</td>
+</tr>
+<tr>
+<td>空值</td>
+<td></td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p><code>divmod</code>同时计算商和余数。</p>
+</li>
+<li><p><code>float()</code>强制转换，整数到浮点数</p>
+</li>
+<li><p><code>complex()</code>函数用来创建一个复数</p>
+</li>
+<li><p><code>type()</code>函数用来告知参数类型</p>
+<blockquote>
+<p>书写很大的数时，可使用下划线将其中的数字分组，使其更清晰易读（Verilog？）</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="数学库"><a href="#数学库" class="headerlink" title="数学库"></a>数学库</h4><p>​    ==math库==</p>
+<ul>
+<li><p>在使用math库之前，需要：<code>import math</code>来引入math库</p>
+</li>
+<li><p>库里面，有数据对象（一些常量）和函数。用<code>.</code>调用的函数也叫方法。</p>
+</li>
+</ul>
+<h4 id="字符串与列表"><a href="#字符串与列表" class="headerlink" title="字符串与列表"></a>字符串与列表</h4><p>​    字符串使用’’或者””括起来。</p>
+<ul>
+<li><p>三个单引号用来跨行                                </p>
+</li>
+<li><p><code>+</code>连接字符串，<code>*</code>字符串复制</p>
+<p>列表，一个线性存储的数据结构，一个序列。</p>
+<p><code>empty_list=[]</code></p>
+<p>index 索引 偏移量</p>
+<p>字符串就是特殊的列表吧</p>
+<ul>
+<li><p><strong>列表推导式</strong></p>
+<p>==由列表/迭代产生列表，数目保持一致。大概和映射差不多，关键是确定映射关系==</p>
+<p><code>[expression for item in iterable]</code></p>
+<p>like <code>[2*number for number in [1,2,3,4,5]    so the list is [2,4,6,8,10]</code> </p>
+<p>like 带条件表达式 <code>1/i if i%2==1 else -1/i    for i in range(1,n+1)</code></p>
+<p>可以通过字符串的<code>*</code>得到扩列，再通过<code>int()</code>转换成整数</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="运算类型"><a href="#运算类型" class="headerlink" title="运算类型"></a>运算类型</h4><ul>
+<li>关系运算</li>
+<li><p>逻辑运算（与或非）</p>
+</li>
+<li><p>强制转换（内置的转换函数） 提一下<code>ord() Unicode对应的整数 chr() 整数对应的Unicode bin()整数转二进制字符串 otc()整数转八进制字符串 hex()整数转十六进制字符串</code></p>
+</li>
+</ul>
+<h4 id="语句（主要编写的结构）"><a href="#语句（主要编写的结构）" class="headerlink" title="语句（主要编写的结构）"></a>语句（主要编写的结构）</h4><ul>
+<li><strong>赋值语句</strong><ol>
+<li>普通=</li>
+<li>序列赋值。<code>x,y=7,8</code> <code>a,b=&quot;34&quot;</code></li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>组合</li>
+</ol>
+<ul>
+<li><p><strong>if语句</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> expression:</span><br><span class="line">    sentence <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    sentence2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>for语句</strong></p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="keyword">variable</span> in <span class="comment">certain_list(range):</span></span><br><span class="line">	sentence</span><br></pre></td></tr></table></figure>
+<p><strong>for</strong>后面的变量，会遍历<strong>list</strong>里面的值，起到控制循环的作用</p>
+<p>​    循环的每一次，变量都会tag到列表里面的一个对象，然后就可以对它进行操作，知道遍历列表里面的全部元素。</p>
+<ul>
+<li><p><code>range(start, stop, step)</code> 返回在特定区间里面的自然数序列</p>
+<p>start默认从0开始；stop 结束，但是遍历的值里面并不包括stop；step 步长 默认为1</p>
+</li>
+<li><p><code>SUM()</code>一个内置函数，求列表的和</p>
+<p><code>list(range(10))</code> 快速得到一个list</p>
+<p><code>sum([1,2,3...10]) or sun(list(range(1,11)))</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="详解字符串，列表和元组"><a href="#详解字符串，列表和元组" class="headerlink" title="详解字符串，列表和元组"></a>详解字符串，列表和元组</h2><h4 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h4><p>​    什么是序列呢？就是数据容器。python有六种内置的序列。</p>
+<ul>
+<li><strong>序列的通用操作</strong><ul>
+<li><code>X1+X2</code>连接序列，得到新的序列</li>
+<li><code>X1*n</code>序列重复n次，得到新的序列</li>
+<li><code>X1[N]</code>通过索引来引用。当下标负数，表示序列从后往前数数</li>
+<li><code>X[i:j]</code>引用子串。在前面切一刀，意味着X[i]在新的序列里面，但是X[j]并不在。得到最后一个[?:]</li>
+<li><code>X[;j;k]</code>引用子串，并且步长为k</li>
+<li><code>len(X)</code>返回长度，也就是成员个数</li>
+<li><code>max(X) and min(X)</code> 字符串，Unicode计算</li>
+<li><code>v in X and v not in X</code>判断V是否在序列里面，返回布尔值</li>
+<li>子串可以用来序列的复制 <code>b=a[:]</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><ul>
+<li><p><strong>概念</strong></p>
+<p>一连串的字符。</p>
+<p>引号括起来。单引号、双引号都可以，但是不支持长换行，加<code>\</code>表示还是一个字符串。三重引号支持换行。开头引号前面加<code>r</code>表示原始字符串，转义无效。</p>
+<p>比较奇特的是，python的字符串是不可修改的常量。只能通过序列运算得到新的字符串。（？那不是一直占据内存</p>
+</li>
+<li><p><strong>格式化</strong></p>
+<ul>
+<li><p><code>%</code>谓之占位符，可以限定长度，<code>-</code>左对齐（在后面填充空格，默认在前面），0用0填充，+正数也要标符号，<code>`表示正数前面空一个和负数对齐；浮点数</code>.?f`保留？位小数</p>
+</li>
+<li><p><code>format()</code>函数</p>
+<p>​    也通过占位符来表示格式化，占位符是<code>{}</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="列表和元组"><a href="#列表和元组" class="headerlink" title="列表和元组"></a>列表和元组</h4><ul>
+<li><p><strong>概念</strong></p>
+<p>列表是一种序列。但是列表中的元素类型不限</p>
+<p>创建：直接<code>[]</code>或者<code>list(range(a,b,c))</code>转换</p>
+</li>
+<li><p>操作</p>
+<ul>
+<li><p>列表的元素可引用并且<strong>修改</strong></p>
+<blockquote>
+<p>只需将该元素的位置 （索引）告诉Python即可。要访问列表元素，可指出列表的名称，再指 出元素的索引，并将后者放在方括号内。</p>
+</blockquote>
+</li>
+<li><p>添加 <code>append or insert</code></p>
+</li>
+<li><p>删除元素。</p>
+<ul>
+<li><p><code>del ？</code>是一条语句，而不是函数</p>
+</li>
+<li><p>也可以使用<code>pop</code>，还可以返回被删除的值。需要注意，这是列表的一个方法，如果没有指定索引，这将pop掉最后一个元素。</p>
+</li>
+<li><p>如果甚至连索引也不知道，<code>remove</code>方法可以删除第一个匹配的元素。</p>
+<blockquote>
+<p>tips:可以通过tag这个要删除的元素，remove(tag)，这样删除以后还可以使用这个元素（的值）。我们还可以使用循环来确保完全删除这个值。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>排序组织</p>
+<ul>
+<li><p><code>sort()</code><strong>方法</strong>可以永久性修改列表的排序。</p>
+<p>一般升序，通过修改参数<code>reverse=True</code>可以逆序。</p>
+</li>
+<li><p><code>sorted()</code><strong>内置函数</strong>可以临时性修改顺序，将其赋给另外一个变量即可。</p>
+</li>
+<li><code>reverse()</code>方法可以逆转列表</li>
+</ul>
+</li>
+<li><p>获取长度</p>
+<p>内置函数<code>len()</code></p>
+</li>
+<li><p>统计（对于数字列表）方法</p>
+<ul>
+<li><code>min()</code></li>
+<li><code>max()</code></li>
+<li><code>sum()</code></li>
+</ul>
+</li>
+<li><p>切片赋值，我们来一个数量不对等的，这样就实现了插入和删除，包括复制（单纯让一个变量tag到一个列表，那么还是一个列表）。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>元组</strong></p>
+<p>元素类型任意，<strong>不可修改</strong>，也就是不能对里面的一个分量进行修改，但是可以把这个变量tag到另外一个元组。表达有序序列。字面量用括号；<code>tuple()</code>将其它序列的值变为元组</p>
+<blockquote>
+<p>严格地说，元组是由逗号标识的，圆括号只是让元组看起来 更整洁、更清晰。如果你要定义只包含一个元素的元组，必须在这 个元素后面加上逗号</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><h4 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h4><p>​    判断一个/多个逻辑表达式，表达式之间要用逻辑运算符连接。结果是<code>ture or false</code>。 除了和C类似的一些逻辑表达式，还有<code>in</code>这个关键字，可以将检查一个元素是否在一个列表里面，<code>not in</code>的用法显然。</p>
+<ul>
+<li>if-elif 块。可嵌套</li>
+<li>expression。直接得到值，二选一。</li>
+</ul>
+<h4 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h4><blockquote>
+<p>重复性的工作是无趣的，但是对机器而言却是最拿手的。</p>
+<p>循环的要素 循环控制变量/循环体（共同的操作序列，对象一般因为控制变量的变化而变化）</p>
+</blockquote>
+<ul>
+<li><p><code>while</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> expression:</span><br><span class="line">	sentence block</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>break</code></li>
+<li><code>continue</code></li>
+</ul>
+</li>
+<li><p><code>for</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> variable <span class="keyword">in</span> sequence(container):</span><br><span class="line">    sentence block</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>this variable is the value of that unit not the unit itself</p>
+</li>
+<li><p><code>range()</code> 用来构造一个有序的数列。</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">range(n) <span class="comment">#0~n(不包括n)</span></span><br><span class="line">range(a,b) <span class="comment">#a~b</span></span><br><span class="line">range(a,b,s) <span class="comment">#s step</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="搜索和排序"><a href="#搜索和排序" class="headerlink" title="搜索和排序"></a>搜索和排序</h4><ul>
+<li><p><strong>搜索</strong></p>
+<p>线性搜索（查找最值）</p>
+<p>二分查找</p>
+</li>
+</ul>
+<h2 id="集合与字典"><a href="#集合与字典" class="headerlink" title="集合与字典"></a>集合与字典</h2><h4 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h4><ul>
+<li><p><strong>view</strong></p>
+<ul>
+<li>集合可以方便地处理，相异元素的一组数据</li>
+<li>集合的<strong>字面值</strong>是用<code>{}</code>表示的</li>
+</ul>
+</li>
+<li><p><strong>操作</strong></p>
+<ul>
+<li><p>创建集合</p>
+<p>使用集合字面值/<code>set()</code>。后者可以将任意的序列诸如列表、元组转换成集合</p>
+<p>NOTE：如果要创建空集合，只能使用<code>set()</code>，不带参数。空的大括号用来创建空的字典</p>
+</li>
+<li><p>操作元素</p>
+<p>NOTE：不可以使用索引来调用集合的元素，因其无序。此外，也没有<code>append() method</code></p>
+</li>
+<li><p>子集、超集和相等（集合的关系判断）</p>
+<ol>
+<li><code>in   and   not in</code>这两个运算符可以判断某个元素是否在一个集合中</li>
+<li><code>issubset()</code>可以判断一个集合是否是另外一个集合的<strong>子集</strong>。<code>etc  s1.issubset(s2)</code></li>
+<li><code>issuperset()</code>可以判断一个集合是否是另外一个集合的<strong>超集</strong></li>
+<li><code>==</code>可以用来判断两个集合是否相等！！！</li>
+<li>不等号可以判断两个集合的包含与被包含的关系，见1、2</li>
+</ol>
+</li>
+<li><p>集合的运算</p>
+<p>可以用运算符也可以用函数（想想C++</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h4><ul>
+<li><p><strong>view</strong></p>
+<p>列表中的元素，都对应于一个整数数字编号，也就是索引。而字典是什么呢？他的每一个元素也都有<em>索引</em>，只是不是自然数了，而是名字,一个字符串，<strong>键</strong>。键和对应的数据一起，叫做字典的一个条目。字典里面，如词典没有两个一样的单词一样，没有两个一样的名字，也就是键值相异。</p>
+<p>==简言之，字典能够存储映射关系（键值对），关联起信息。==</p>
+</li>
+<li><p><strong>创建字典</strong></p>
+<p>字典和集合一样，用<code>{}</code>表示，只是里面的元素（一个词条、条目，键值+数据元素），形式为<code>&#39;index&#39;:data</code>。除了字面值，也可以使用<code>dic()</code>。</p>
+</li>
+<li><p><strong>操作</strong></p>
+<ul>
+<li><p>访问和修改条目</p>
+<p><code>字典[键值]</code>。修改的时候，如果键值不存在，就直接创建增加一个条目。</p>
+</li>
+<li><p>删除条目</p>
+<p><code>del()</code></p>
+</li>
+<li><p>遍历字典</p>
+<p><code>for name in dic</code>（打印key） 等效于 <code>for name in dic.keys()</code> 对称地，有<code>values()</code>方法。</p>
+<p><code>for key, value in dic.items()</code>  <code>items()</code>方法返回一个含键值对（二元组）的列表</p>
+</li>
+<li><p>字典大小</p>
+<p><code>len()</code> 返回条目的数量</p>
+</li>
+<li><p>获取值</p>
+<p>方法<code>get(key, &quot;the word return if not found,默认None&quot;)</code></p>
+</li>
+<li><p>检测</p>
+<p><code>in   and   not in</code>可以判断一个<strong>键值</strong>（不是条目）是否在一个字典中.对于数据，还需要进一步判断</p>
+<p><code>== and ！=</code>可以判断两个字典是不是一样的（指所有的条目）。这里与集合不一样，集合的不等号还可以表示集合的包含关系；而字典的不等号既不可以表示大小，也没有什么关系，所以无意义。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>嵌套</strong></p>
+<p>列表作为字典的元素，或者字典作为字典的元素，或者字典作为列表的元素。</p>
+</li>
+<li><p><strong>字典函数</strong></p>
+<p>一般<code>keys() and items()</code>返回以后，用<code>tuple</code>，元素不会重复。</p>
+<p><code>values()</code>返回以后，用<code>list()</code>转换。</p>
+</li>
+</ul>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><p>​    外部数据输入，建立计算机内部（内存）的数据模型（数据结构）。</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>​    函数是一个块，是一种映射的逻辑。给定参数（输入），给出返回值（输出）。如果是引用或者指针，还可以在块里面对对象进行修改。</p>
+<p>==Python中不存在传值调用，一切传递的都是<strong>对象引用</strong>，也可以认为是传址调用。==</p>
+<h4 id="形式"><a href="#形式" class="headerlink" title="形式"></a>形式</h4><ul>
+<li><p><code>def</code>  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibs</span><span class="params">(n)</span>:</span></span><br><span class="line">    result = [<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n<span class="number">-2</span>):</span><br><span class="line">        result.append(result[<span class="number">-2</span>]+result[<span class="number">-1</span>])</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><code>lambda</code>  处理过程（映射过程）限制在一个表达式里面。可以用在要求简单或者不允许使用def的场景</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">g = <span class="keyword">lambda</span> x,y,z : x+y+z</span><br><span class="line">print(g(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><ul>
+<li><p>位置参数</p>
+<p>按照顺序传递</p>
+</li>
+<li><p>关键字参数</p>
+<p>为了避免位置参数带来的可能的混乱。指定参数的名字，于是顺序不做要求。<strong>可以混用</strong>。但是，混用时候，位置参数在前，关键字参数在后。</p>
+</li>
+<li><p>默认值参数</p>
+<p>调用者<code>caller</code>没有提供参数，可以像C++那样来一个缺省参数。需要填充满右边；<strong>在定义的时候就已经被计算出来了</strong>。特别的，注意列表之类的参数。</p>
+<ul>
+<li>答案是函数参数的默认值只会评估使用一次—在函数定义的时候。因此，bar参数在初始化时为其默认值（即一个空列表），即foo()首次定义的时候，但当调用foo()时（即，不指定bar参数时）将继续使用bar原本已经初始化的参数。(在堆里面)</li>
+</ul>
+</li>
+<li><p>不定长数目参数</p>
+<ul>
+<li><p><code>*</code>将一组可变数量的位置参数变成参数值的容器。就好像一个能接受许多参数（未知数量参数）的容器</p>
+<p><code>print(*[len(word) for word in input()[0:-1].split])</code></p>
+</li>
+<li><p><code>**</code>将参数收集到一个字典里面进去。参数名字是键值；参数的值是字典的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">countnum</span><span class="params">(a, **d)</span>:</span></span><br><span class="line">    print(d)</span><br><span class="line">    print(len(d)+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">countnum(<span class="number">3</span>, x1=<span class="number">9</span>, x2=<span class="number">1</span>, x3=<span class="number">6</span>, x4=<span class="number">89</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>命名空间和作用域</p>
+<p><code>python</code>解释器一开始运行的时候，初始环境里面有一个内置的命名空间，包括了各种内置的常量和变量。</p>
+</li>
+</ul>
+<h4 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h4><p>​    函数调用自身的编程技巧叫做递归。是一种基本的算法。</p>
+<p>​    终止条件和递归条件，避免无限循环。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">0</span> <span class="keyword">or</span> n==<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> <span class="comment">#递归出口</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> fib(n<span class="number">-1</span>)+fib(n<span class="number">-2</span>)</span><br><span class="line">------------------------------</span><br><span class="line"><span class="comment">#字典来存储序列</span></span><br><span class="line">pre = &#123;<span class="number">0</span>:<span class="number">1</span>, <span class="number">1</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n <span class="keyword">in</span> pre:</span><br><span class="line">        <span class="keyword">return</span> pre[n]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        newvalue = fib(n<span class="number">-1</span>)+fib(n<span class="number">-2</span>)</span><br><span class="line">        pre[n]=newvalue</span><br><span class="line">        <span class="keyword">return</span> newvalue</span><br></pre></td></tr></table></figure>
+<h4 id="一些内置函数"><a href="#一些内置函数" class="headerlink" title="一些内置函数"></a>一些内置函数</h4><ul>
+<li><p><code>sorted(iterable, key, reverse)          reverse true 降序；false 升序 默认升序</code>  </p>
+<p>对字符串、列表、元组、字典等对象进行排序。</p>
+<p><strong>返回一个新的列表</strong></p>
+</li>
+<li><p><code>map(function, iterable)</code></p>
+<p>根据给定的函数，对指定的序列进行映射</p>
+<p>返回一个序列或者迭代器</p>
+</li>
+<li><p><code>zip(iterable,...)</code></p>
+<p>将可迭代的对象对应德合成一个元素为元组的迭代器，其中，迭代器的长度为min(all iterable)</p>
+<p>可以方便的使用zip创建新的字典</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d=&#123;<span class="string">'a'</span>:<span class="number">1</span>, <span class="string">'b'</span>:<span class="number">2</span>, <span class="string">'c'</span>:<span class="number">3</span>&#125;</span><br><span class="line">d1=dict(zip(d.values(), d.keys()))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>eval() and exec()</code></p>
+<p>前者计算表达式的值，其实就是将外层的引号去掉</p>
+<p>后者可以运行程序，返回结果</p>
+</li>
+<li><p><code>all() and any()</code></p>
+<p>都以迭代器为参数</p>
+<p>前者，只有全部元素都是TRUE才是返回TRUE</p>
+<p>后者，只要有一个元素为TRUE，就返回TRUE</p>
+</li>
+</ul>
+<h4 id="程序结构"><a href="#程序结构" class="headerlink" title="程序结构"></a>程序结构</h4><ul>
+<li><p>模块和包</p>
+<p>一个<code>python</code>文件就是一个模块。模块名就是文件名，但是不包括扩展名</p>
+<p>使用模块的方法就是 </p>
+<ul>
+<li><p><code>import 模块名</code>。<strong>如果就在一个目录下面，否则，需要在<code>sys</code>里面加搜索路径</strong></p>
+</li>
+<li><p><code>from lib import func</code> 这样的话，就不需要通过模块名来调用函数。</p>
+<p>特别的，<code>from lib import *</code>通配符的使用使得我们可以引入全部的函数</p>
+</li>
+</ul>
+</li>
+<li><p><code>sys</code>模块</p>
+<p>自带模块。执行<code>import sys</code>之后，程序自动在<code>sys.path</code>变量中需按照相应的模块文件。其实就是一个列表，<code>append</code>就可以往里面增加路径</p>
+<p>该模块负责，程序与解释器的交互</p>
+</li>
+</ul>
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><p>​    文件就是储存在长期的存储设备上的一段数据流。</p>
+<p>​    文件分为二进制文件（图形文件/文字处理文件）和文本文件，此二者只是编码方式上有区别</p>
+<h4 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h4><ul>
+<li><p><strong>步骤</strong></p>
+<ol>
+<li>打开一个文件</li>
+<li>处理数据</li>
+<li>关闭文件</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pf = open(<span class="string">"certain_file"</span>, <span class="string">"rt"</span>)</span><br><span class="line"><span class="comment"># pf关联到open()函数返回的文件的对象</span></span><br><span class="line">t=pf.readline()</span><br><span class="line">print(t)</span><br><span class="line">pf.close()</span><br><span class="line"><span class="comment"># "rt"  read text</span></span><br><span class="line"><span class="comment"># "rb"	read bin 二进制文件</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>open(filename, mode)</code></p>
+<p>前一个参数是要打开的文件的名字，后一个参数是打开的模式（前一个字母表示何种操作/后一个字母表示打开的文件类型，如果是text，可以省略）</p>
+</li>
+<li><p><strong>常用的文件操作函数</strong></p>
+</li>
+</ul>
+<p>​        注意，<code>getlines()</code>返回一个列表，里面的元素是字符串。</p>
+<p>​        可以使用循环读入，得到字符串。<code>for line in f.getlines()</code> 。注意，得到的字符串本身包含一个换行</p>
+<p>​        但是<code>input()</code>函数不会，它会舍弃掉换行符。</p>
+<h4 id="Pandas-模块读写文件"><a href="#Pandas-模块读写文件" class="headerlink" title="Pandas 模块读写文件"></a>Pandas 模块读写文件</h4><ul>
+<li><p><strong><code>python</code>的模块函数</strong></p>
+<ul>
+<li><p>内置函数。不需要<code>import</code>，可以直接调用</p>
+</li>
+<li><p>标准模块函数。需要引入，但不需要另外安装</p>
+</li>
+<li><p>第三方模块函数。需要安装，再引入。</p>
+<ul>
+<li>常用的模块库</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>pandas模块介绍</strong></p>
+<p><strong>dataframe</strong></p>
+<p>一种二维数据类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly <span class="keyword">as</span> py</span><br><span class="line"><span class="keyword">from</span> plotly <span class="keyword">import</span> figure_factory <span class="keyword">as</span> FF</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">pyplt=py.offline.plot</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>​                    如果用字典，字典的键值是列的名字；字典的值是列的值。但是列的此讯不确定。</p>
+<h2 id="对象-1"><a href="#对象-1" class="headerlink" title="对象"></a>对象</h2><p>​    使用对象进行程序设计，实现代码重用和设计重用，便于<strong>软件开发</strong></p>
+<p>​    我们将现实生活中的事物抽象成<strong>类</strong>，在具体的程序设计中创建对象。</p>
+<p>​    <strong>面向对象程序设计</strong>有三个特征：封装，继承和多态</p>
+<p>​    <em>NOTE</em>：当我们会逻辑上的语句流以后，面向过程程序设计就已经变得显然了。</p>
+<h4 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h4><p>​    <strong>对象</strong>表示一个<strong>实体</strong>，每个对象都有自己的标识、属性和行为。在这里，属性特指数据域；行为，也叫动作，是由方法确定的，这样，调用对象的方法，就是让他发生一个<em>动作</em>。</p>
+<p>​    <strong>类</strong>是定义属性和行为的模板。<code>python</code>中，<strong>万物皆为对象</strong>，所谓类，有点像我们在C里面学的<code>struct</code>，但是那时候里面只有属性而没有方法，换言之，<strong>类就是封装了变量和方法的一种数据类型</strong>。不同的对象可以有不同的数据域，占据了内存，是类的一个实例。</p>
+<p>​    <strong>面向对象程序设计</strong>就是要评估待解决问题，恰当的设计类，然后创建类的实例。这些普遍性的类可以封装成库，供更多的人使用。</p>
+<h4 id="创建类和对象"><a href="#创建类和对象" class="headerlink" title="创建类和对象"></a>创建类和对象</h4><ul>
+<li><p><strong>类的定义</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassName</span>:</span> <span class="comment">#类的名字 单词的组合 各个单词首字母大写</span></span><br><span class="line">    initializer</span><br><span class="line">    methods</span><br></pre></td></tr></table></figure>
+<p><strong>一个例子</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>:</span>	<span class="comment">#类，包括变量和方法/属性和行为</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, number)</span>:</span> <span class="comment">#初始化函数（方法）</span></span><br><span class="line">        self.name=name</span><br><span class="line">        self.number=number</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getInfo</span><span class="params">(self)</span>:</span> <span class="comment">#其它方法/成员方法</span></span><br><span class="line">        print(self.name, self.number)</span><br></pre></td></tr></table></figure>
+<p>​    在<code>python</code>中，类的所有方法都至少含有一个叫做<code>self</code>的参数，还必须放在第一个，该参数表示将创建的对象本身。这样就可以区别同一个类的不同对象，在修改属性，调用方法的时候，我觉得。</p>
+<p>​    <code>__init__()</code>是一个特殊的函数，每当一个新的对象被创建，这个方法就会被调用。这时候<code>self</code>会自动传递，我们只需要传入其它参数。</p>
+</li>
+<li><p><strong>对象的创建和使用</strong></p>
+<ul>
+<li>创建： 类名（参数）  返回一个对象的引用</li>
+<li>使用：<ul>
+<li>对象成员包含数据和方法。一个方法可以被一个对象调用来完成它的一个动作（也许是修改属性）</li>
+<li><code>对象名字.成员</code></li>
+<li>类中的每个属性<ul>
+<li>都得有一个初始值（创建的时候能关联到一块内存，不然这个属性就不存在。或者说，我们不必像C++那样specifically声明属性，而是在使用时候<code>self.?</code>声明了），或者是参数，或者是在初始化函数里面关联。</li>
+<li>至于修改属性，可以通过对象引用，也可以通过方法间接修改</li>
+<li><code>pass</code>关键字可以表示空语句，用在方法定义中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
+<li><p><strong>封装</strong></p>
+<p>将属性、方法集合在一个整体里面，通过访问控制，同时可以<strong>设置权限</strong>，将实现的细节对用户隐藏，只提供接口。于是，类也叫做抽象数据类型或者复合数据类型。</p>
+<ul>
+<li><p><strong>成员</strong></p>
+<ul>
+<li><p>数据</p>
+<p>实例成员。在<code>init</code>里面定义，每一个对象都有其副本。类内使用<code>self</code>访问，类外使用<code>对象</code></p>
+<p>类变量（静态变量）。属于这类，在类定义中，方法外定义。所有对象（实例）共享它。对象或者类名都可以访问它。</p>
+</li>
+<li><p>方法</p>
+<p>实例方法。</p>
+<p>类方法。不能对特定的实例操作，也自然不能访问实例变量。</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@classmethod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getPrice</span><span class="params">(cls)</span>:</span></span><br><span class="line">    print(cls.price)</span><br></pre></td></tr></table></figure>
+<p>​        静态方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@staticmethod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setPrice</span><span class="params">(price)</span>:</span></span><br><span class="line">    Car.price=price</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>权限</strong></p>
+<p><code>python</code>类的成员没有像C++那样有明确的访问控制，但是有一些约定。</p>
+<p>一个下划线前缀<code>_</code>。受保护成员，不能<code>from module import *</code>导入</p>
+<p>两个下划线和两个下划线前后缀。系统定义的特殊成员（<code>init</code>）</p>
+<p>只是两个下划线为前缀。私有成员，只能类内访问。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>  ​        在python里面，想要访问私有成员，必须用装饰器修饰了的方法。</p>
+<p>  ​        <code>@property</code>默认只提供 只读权限</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@property</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> ?<span class="params">(?)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<h4 id="继承-＆-多态"><a href="#继承-＆-多态" class="headerlink" title="继承 ＆ 多态"></a>继承 ＆ 多态</h4><ul>
+<li><p>继承是代码重用的一种重要手段/创建新的类的机制。子类可以继承父类的属性和方法，也可以对此修改，还可以添加。</p>
+</li>
+<li><p>使用</p>
+<p>在子类的定义中，名字后的括号里面填父类的名字</p>
+<p><code>super()</code>是一个特殊的函数，可以将父类和子类关联起来，使得子类的init可以调用父类的构造函数，实现父类数据成员的初始化。</p>
+</li>
+<li><p>多态</p>
+<p>动态绑定。程序运行时，由对象的类型确定变量的类型。比如 ：类重载操作符</p>
+</li>
+</ul>
+<h2 id="END-一些有趣的东西"><a href="#END-一些有趣的东西" class="headerlink" title="END.一些有趣的东西"></a>END.一些有趣的东西</h2><ul>
+<li><p><a href="http://www.laurentluce.com/posts/python-list-implementation/" target="_blank" rel="noopener">列表的底层实现</a></p>
+</li>
+<li><p>python一句一句执行，那么变量关联的信息是如何存储的？</p>
+</li>
+<li><p>内存回收机制？</p>
+</li>
+<li>[可变和不可变对象</li>
+<li><a href="https://www.py.cn/faq/python/11722.html" target="_blank" rel="noopener">编写代码规范 PEP 8</a><ul>
+<li>缩进，将TAB设置成四个空格</li>
+<li>空行，体现block</li>
+<li>一行的字符数量不应该超过79/注释不应该超过72</li>
+</ul>
+</li>
+</ul>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/2021/03/13/computer-organization-and-design-Preface/" data-toggle="tooltip" data-placement="top" title="computer-organization-and-design-Preface">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            Hope you like this blog or find it useful for you!If the images or something else used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+          </p>
+        </div>
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#概览"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概览</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#对象"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">对象</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#面向对象编程"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">面向对象编程</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#一些基本常识"><span class="toc-nav-number">1.0.3.</span> <span class="toc-nav-text">一些基本常识</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#程序编写初步"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">程序编写初步</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#基本（内置）数据类型"><span class="toc-nav-number">2.0.1.</span> <span class="toc-nav-text">基本（内置）数据类型</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#数学库"><span class="toc-nav-number">2.0.2.</span> <span class="toc-nav-text">数学库</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#字符串与列表"><span class="toc-nav-number">2.0.3.</span> <span class="toc-nav-text">字符串与列表</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#运算类型"><span class="toc-nav-number">2.0.4.</span> <span class="toc-nav-text">运算类型</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#语句（主要编写的结构）"><span class="toc-nav-number">2.0.5.</span> <span class="toc-nav-text">语句（主要编写的结构）</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#详解字符串，列表和元组"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">详解字符串，列表和元组</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#overview"><span class="toc-nav-number">3.0.1.</span> <span class="toc-nav-text">overview</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#字符串"><span class="toc-nav-number">3.0.2.</span> <span class="toc-nav-text">字符串</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#列表和元组"><span class="toc-nav-number">3.0.3.</span> <span class="toc-nav-text">列表和元组</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#语句"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">语句</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#条件语句"><span class="toc-nav-number">4.0.1.</span> <span class="toc-nav-text">条件语句</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#循环语句"><span class="toc-nav-number">4.0.2.</span> <span class="toc-nav-text">循环语句</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#搜索和排序"><span class="toc-nav-number">4.0.3.</span> <span class="toc-nav-text">搜索和排序</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#集合与字典"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">集合与字典</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#集合"><span class="toc-nav-number">5.0.1.</span> <span class="toc-nav-text">集合</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#字典"><span class="toc-nav-number">5.0.2.</span> <span class="toc-nav-text">字典</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#应用"><span class="toc-nav-number">5.0.3.</span> <span class="toc-nav-text">应用</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#函数"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">函数</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#形式"><span class="toc-nav-number">6.0.1.</span> <span class="toc-nav-text">形式</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#参数"><span class="toc-nav-number">6.0.2.</span> <span class="toc-nav-text">参数</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#递归"><span class="toc-nav-number">6.0.3.</span> <span class="toc-nav-text">递归</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#一些内置函数"><span class="toc-nav-number">6.0.4.</span> <span class="toc-nav-text">一些内置函数</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#程序结构"><span class="toc-nav-number">6.0.5.</span> <span class="toc-nav-text">程序结构</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#文件"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">文件</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#文件读写"><span class="toc-nav-number">7.0.1.</span> <span class="toc-nav-text">文件读写</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Pandas-模块读写文件"><span class="toc-nav-number">7.0.2.</span> <span class="toc-nav-text">Pandas 模块读写文件</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#对象-1"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">对象</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#类和对象"><span class="toc-nav-number">8.0.1.</span> <span class="toc-nav-text">类和对象</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#创建类和对象"><span class="toc-nav-number">8.0.2.</span> <span class="toc-nav-text">创建类和对象</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#特性"><span class="toc-nav-number">8.0.3.</span> <span class="toc-nav-text">特性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#继承-＆-多态"><span class="toc-nav-number">8.0.4.</span> <span class="toc-nav-text">继承 ＆ 多态</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#END-一些有趣的东西"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">END.一些有趣的东西</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#python" title="python">python</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+	<!-- Footer (contains ThemeColor、viewer) -->
+	<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/yangshenyi">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          yangshenyi
+          2021
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+<!-- jQuery -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script type="text/javascript" src="/js/hux-blog.min.js"></script>
+
+<!-- catalog -->
+<script type="text/javascript" async="true" src="/js/catalog.js?v=1.0.0"></script>
+
+<!-- totop(rocket) -->
+<script type="text/javascript" async="true" src="/js/totop.js?v=1.0.0"></script>
+
+<!-- Busuanzi JavaScript -->
+
+  <!-- <script type="text/javascript" async="true" src="/js/busuanzi.pure.mini.js"></script> -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+  <!-- Scroll start -->
+  <script type="text/javascript" src="/js/scroll.js"></script>
+  <!-- Scroll end -->
+
+
+
+  <!-- ThemeColor start -->
+  <script type="text/javascript" src="/js/themecolor.js"></script>
+  <!-- ThemeColor end -->
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  <script type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+  <script type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){ hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if($('#tag_cloud').length !== 0){ async("http://yangshenyi.github.io/js/jquery.tagcloud.js",function(){ $.fn.tagcloud.defaults = { //size: {start: 1, end: 1, unit: 'em'}, color: {start:
+'#bbbbee', end: '#0085a1'}, }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+	<!-- Search -->
+	
+	<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/ziploader.js"></script>
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+	
+
+	<!-- Image to hack wechat -->
+	<!-- <img src="http://yangshenyi.github.io/img/icon_wechat.png" width="0" height="0" /> -->
+	<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":280,"height":560},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+</html>
