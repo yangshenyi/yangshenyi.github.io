@@ -133,10 +133,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yangshenyi.github.io/2021/02/18/A-New-World/">
+  <link rel="canonical" href="http://yangshenyi.github.io/2021/03/13/computer-organization-and-design-Preface/">
   <title>
     
-    A-New-World - My Lapuda
+    computer-organization-and-design-Preface - My Lapuda
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -275,7 +275,7 @@
   <style type="text/css">
     header.intro-header {
        /*post*/
-        background-image: url('A-New-World_picture.jpg');
+        background-image: url('head.png');
       
     }
 
@@ -300,16 +300,16 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#informal essay" title="informal essay">informal essay</a>
+              <a class="tag" href="/tags/#hardware" title="hardware">hardware</a>
               
-              <a class="tag" href="/tags/#thoughtful node" title="thoughtful node">thoughtful node</a>
+              <a class="tag" href="/tags/#riscv" title="riscv">riscv</a>
               
             </div>
-            <h1>A-New-World</h1>
+            <h1>computer-organization-and-design-Preface</h1>
             <h2 class="subheading"></h2>
             <span class="meta">
               Posted by yangshenyi on
-              2021-02-18
+              2021-03-13
             </span>
 
 
@@ -317,11 +317,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">1</span> Minutes
+              Estimated Reading Time <span class="post-count">3</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">65</span> In Total
+              Words <span class="post-count">776</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -383,18 +383,164 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p>​    科班在读一年半练习生，但我大抵还不算个合格的coder，毋言<strong>geek</strong>。</p>
-<p>​    很早就想有自己的一个的<strong>Blog</strong>，这里，希望会是我改变浑浑噩噩状态（不论是学业还是生活）的开始吧！</p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h3 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h3><ul>
+<li><p>电子管</p>
+<p>计算和存储分离/可编程/图灵完全</p>
+</li>
+<li><p>晶体管</p>
+<p>体积变小，速度更快/编程语言从二进制机器码到汇编语言</p>
+</li>
+<li><p>集成电路</p>
+<p>还随之诞生了许多的操作系统</p>
+</li>
+<li><p>大规模集成微处理器（micro processors）</p>
+<p>个人计算机兴起</p>
+</li>
+</ul>
+<h3 id="RISC-Architecture"><a href="#RISC-Architecture" class="headerlink" title="RISC Architecture"></a>RISC Architecture</h3><ul>
+<li><p>Reduced Instruction Set Computer</p>
+<p>一种指令集，指令长度一定/执行所需的时钟周期较少—&gt;提高编译和运行效率</p>
+<blockquote>
+<p>risc<a href="https://zhuanlan.zhihu.com/p/46170108" target="_blank" rel="noopener">指令集架构</a>和risc-v是要区别开的，后者基于前者；比如arm也是RISC的</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="A-definition-on-computer"><a href="#A-definition-on-computer" class="headerlink" title="A definition on computer"></a>A definition on computer</h3><p>​    Computer is an electronic device that manipulates data according to a list of instructions (program), with capability of Turing machine.</p>
+<ul>
+<li>Electronic realization(at least now)</li>
+<li>ISA</li>
+<li>Instruction Flow(Execution of a pre-recorded list of instruction)</li>
+<li>Storage(data and instructions)</li>
+<li>Turing-complete</li>
+</ul>
+<h1 id="Computer-organization"><a href="#Computer-organization" class="headerlink" title="Computer organization"></a>Computer organization</h1><h3 id="Hardware"><a href="#Hardware" class="headerlink" title="Hardware"></a>Hardware</h3><p><img src="computer_component.png" alt="计算机组成"></p>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><ul>
+<li><p>data path</p>
+</li>
+<li><p>control unit</p>
+<p>command the data-path, memory and I/O devices according to the instruction flow. </p>
+</li>
+</ul>
+<h4 id="I-O-interface"><a href="#I-O-interface" class="headerlink" title="I/O interface"></a>I/O interface</h4><ul>
+<li><p><strong>output</strong> </p>
+<p>LCD screen(像素计算)</p>
+</li>
+</ul>
+<h4 id="storage"><a href="#storage" class="headerlink" title="storage"></a>storage</h4><ul>
+<li>Main memory<ul>
+<li>it is volatile</li>
+<li>DRAM</li>
+</ul>
+</li>
+<li>Second memory<ul>
+<li>it is nonvolatile</li>
+<li>flash or solid state memory/ hard disk</li>
+</ul>
+</li>
+</ul>
+<h3 id="Software"><a href="#Software" class="headerlink" title="Software"></a>Software</h3><p><img src="computer_software.png" alt="computer_software"></p>
+<ul>
+<li><p>软件一般用高级语言编写，往往需要经过编译，才能变成可执行的机器码。</p>
+<p>HHL-（compile）-&gt;symbolic language-(assemble)-&gt; machine code</p>
+</li>
+</ul>
+<h3 id="ISA"><a href="#ISA" class="headerlink" title="ISA"></a>ISA</h3><p>​    软件和硬件的接口。只要指令集一样，硬件能够对该指令集正确反应，那么软件编译以后就能在不同的硬件平台上跑。（类比：军队作战，来自不同地方存在语言差异的士兵，在接受统一的旗号后，长官就可以让士兵很好地去战斗部署。旗号，就是一种接口，起到隐藏封装的作用）</p>
+<h1 id="Processors"><a href="#Processors" class="headerlink" title="Processors"></a>Processors</h1><h3 id="produce"><a href="#produce" class="headerlink" title="produce"></a>produce</h3><p><img src="IC_product.png" alt="IC_product"></p>
+<p>​    slicer（切片） die(模具)</p>
+<h3 id="some-parameters"><a href="#some-parameters" class="headerlink" title="some parameters"></a>some parameters</h3><ul>
+<li>yield: proportion of working dies per wafer<ul>
+<li>yield = 1/(1 +( defects per area <em> die area/2))*</em>2</li>
+</ul>
+</li>
+<li>cost per die = cost per wafer/ (dies per wafer * yield)</li>
+</ul>
+<h1 id="Computer-design-performance-and-idea"><a href="#Computer-design-performance-and-idea" class="headerlink" title="Computer design: performance and idea"></a>Computer design: performance and idea</h1><h3 id="Response-Time-and-Throughput"><a href="#Response-Time-and-Throughput" class="headerlink" title="Response Time and Throughput"></a>Response Time and Throughput</h3><ul>
+<li><p>Response time(响应时间)</p>
+<p>how long it takes to do a task</p>
+</li>
+<li><p>Throughput(吞吐率)</p>
+<p>Total work done per unit time</p>
+</li>
+</ul>
+<h3 id="performance"><a href="#performance" class="headerlink" title="performance"></a>performance</h3><p><strong>define performance = 1/response time</strong></p>
+<ul>
+<li><p>Elapsed time</p>
+<p>total time: my processing time, I/O, OS overhead, idle time</p>
+</li>
+<li><p>CPU time</p>
+<p>Time spent processing a given job: Discounts I/O time, other jobs’ shares. </p>
+<p>include user CPU time and system CPU time.</p>
+<ul>
+<li><p>clock cycle</p>
+<p>​    etc. 250ps ==&gt; 4GHZ(4*10^9 HZ)</p>
+</li>
+<li><p>CPU time = CPU Clock Cycles * Clock Cycle Time</p>
+<p>​                = CPU Clock Cycles / Clock Cycle Rate</p>
+<blockquote>
+<p>Hardware designer must often trade off clock rate against cycle count</p>
+</blockquote>
+<p> Given Clock Cycles = Instruction Count * Cycles per Instruction， we introduce a new concept called CPI(and we have a concept called AVG.CPI) </p>
+<p>Then, CPU time = SUM(Instruction Count_i <em> CPI_i) </em> Clock Cycle Time</p>
+<blockquote>
+<p>程序是什么？到底层不过是指令流。一个程序的CPU时间，自然地归结为该程序的指令流所消耗的时间。我们要这样细分，是为了寻求优化系统的角度。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Depends on</p>
+<ul>
+<li>Algorithm</li>
+<li>Programming language</li>
+<li>Compiler</li>
+<li>ISA</li>
+</ul>
+</li>
+</ul>
+<h3 id="power"><a href="#power" class="headerlink" title="power"></a>power</h3><p>power = 1/2 <em> Capacitive load </em> Voltage^2 * Frequency</p>
+<blockquote>
+<p>我们要提高性能，但是散热不允许，硬件设计者发展了多核/乱序执行。但是多核提高吞吐率的时候，带来了如何精确地并行处理的问题。</p>
+</blockquote>
+<ul>
+<li><p>SPEC Benchmark</p>
+<ul>
+<li><p>SPEC CPU Benchmark</p>
+</li>
+<li><p>SPEC Power Benchmark</p>
+</li>
+</ul>
+</li>
+<li><p>Pitfall: Amdahl’s Law</p>
+<p>$T_{improved} = T_{affected}/improvement-factor+T_{unaffected}$</p>
+<blockquote>
+<p>优先提高占比高的。不可优化的就是下界。</p>
+</blockquote>
+<ul>
+<li><p>MIPS(millions of instructions per second)</p>
+<p>$MIPS=Instruction_count/(execution-time<em>10^6)=Clock-rate/(CPI</em>10^6) $</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h1><ul>
+<li>design for Moore’s LAW</li>
+<li>Use abstraction to simplify design</li>
+<li>make the common case fast</li>
+<li>parallelism</li>
+<li>pipelining</li>
+<li>prediction</li>
+<li>hierarchy of memories</li>
+<li>dependability via redundancy </li>
+</ul>
 
 
         <hr>
         <!-- Pager -->
         <ul class="pager">
           
-          <li class="previous">
-            <a href="/2021/02/24/git-basis/" data-toggle="tooltip" data-placement="top" title="git_basis">&larr; Previous Post</a>
-          </li>
           
+          <li class="next">
+            <a href="/2021/03/06/AVL-And-Splay-Tree-0/" data-toggle="tooltip" data-placement="top" title="AVL-And-Splay-Tree">Next Post &rarr;</a>
+          </li>
           
         </ul>
 
@@ -450,7 +596,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="nav">none</ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Introduction"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Introduction</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Development"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">Development</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#RISC-Architecture"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">RISC Architecture</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#A-definition-on-computer"><span class="toc-nav-number">1.0.3.</span> <span class="toc-nav-text">A definition on computer</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Computer-organization"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Computer organization</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Hardware"><span class="toc-nav-number">2.0.1.</span> <span class="toc-nav-text">Hardware</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#CPU"><span class="toc-nav-number">2.0.2.</span> <span class="toc-nav-text">CPU</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#I-O-interface"><span class="toc-nav-number">2.0.2.1.</span> <span class="toc-nav-text">I&#x2F;O interface</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#storage"><span class="toc-nav-number">2.0.2.2.</span> <span class="toc-nav-text">storage</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Software"><span class="toc-nav-number">2.0.3.</span> <span class="toc-nav-text">Software</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ISA"><span class="toc-nav-number">2.0.4.</span> <span class="toc-nav-text">ISA</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Processors"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Processors</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#produce"><span class="toc-nav-number">3.0.1.</span> <span class="toc-nav-text">produce</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#some-parameters"><span class="toc-nav-number">3.0.2.</span> <span class="toc-nav-text">some parameters</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Computer-design-performance-and-idea"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Computer design: performance and idea</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Response-Time-and-Throughput"><span class="toc-nav-number">4.0.1.</span> <span class="toc-nav-text">Response Time and Throughput</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#performance"><span class="toc-nav-number">4.0.2.</span> <span class="toc-nav-text">performance</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#power"><span class="toc-nav-number">4.0.3.</span> <span class="toc-nav-text">power</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Thoughts"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Thoughts</span></a></li></ol>
         
         </div>
       </aside>
@@ -472,9 +618,9 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#informal essay" title="informal essay">informal essay</a>
+            <a class="tag" href="/tags/#hardware" title="hardware">hardware</a>
             
-            <a class="tag" href="/tags/#thoughtful node" title="thoughtful node">thoughtful node</a>
+            <a class="tag" href="/tags/#riscv" title="riscv">riscv</a>
             
           </div>
         </section>

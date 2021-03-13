@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yangshenyi.github.io/2021/03/13/computer-organization-and-design-Preface/</loc>
+    
+    <lastmod>2021-03-13</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yangshenyi.github.io/2021/03/06/AVL-And-Splay-Tree-0/</loc>
     
     <lastmod>2021-03-07</lastmod>
@@ -60,7 +67,7 @@
 
   <url>
     <loc>http://yangshenyi.github.io/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -68,28 +75,42 @@
   
   <url>
     <loc>http://yangshenyi.github.io/tags/informal-essay/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yangshenyi.github.io/tags/thoughtful-node/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yangshenyi.github.io/tags/Data-Structure/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yangshenyi.github.io/tags/git/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangshenyi.github.io/tags/hardware/</loc>
+    <lastmod>2021-03-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangshenyi.github.io/tags/riscv/</loc>
+    <lastmod>2021-03-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -98,21 +119,28 @@
   
   <url>
     <loc>http://yangshenyi.github.io/categories/informal-essay/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yangshenyi.github.io/categories/Data-Structure-Algorithm-AVL-trees/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yangshenyi.github.io/categories/git/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangshenyi.github.io/categories/computer-organization-and-design/</loc>
+    <lastmod>2021-03-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
