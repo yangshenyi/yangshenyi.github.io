@@ -202,13 +202,6 @@
 
           
           <li>
-            <a href="/about/">About</a>
-          </li>
-          
-          
-
-          
-          <li>
             <a href="/categories/">Categories</a>
           </li>
           
@@ -217,6 +210,13 @@
           
           <li>
             <a href="/tags/">Tags</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/about/">About</a>
           </li>
           
           
@@ -315,11 +315,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">23</span> Minutes
+              Estimated Reading Time <span class="post-count">25</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">6.5k</span> In Total
+              Words <span class="post-count">7k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -758,6 +758,7 @@
 <p>==Python中不存在传值调用，一切传递的都是<strong>对象引用</strong>，也可以认为是传址调用。==</p>
 <h4 id="形式"><a href="#形式" class="headerlink" title="形式"></a>形式</h4><ul>
 <li><p><code>def</code>  </p>
+<p>名字最好用小写字母以及下划线</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibs</span><span class="params">(n)</span>:</span></span><br><span class="line">    result = [<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n<span class="number">-2</span>):</span><br><span class="line">        result.append(result[<span class="number">-2</span>]+result[<span class="number">-1</span>])</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -829,8 +830,13 @@
 <ul>
 <li><p><code>import 模块名</code>。<strong>如果就在一个目录下面，否则，需要在<code>sys</code>里面加搜索路径</strong></p>
 </li>
-<li><p><code>from lib import func</code> 这样的话，就不需要通过模块名来调用函数。</p>
+<li><p><code>from lib import func（函数的名字就够了）</code> 这样的话，<strong>就不需要通过模块名来调用函数</strong></p>
 <p>特别的，<code>from lib import *</code>通配符的使用使得我们可以引入全部的函数</p>
+<ul>
+<li><p>取别名，便于调用，简练</p>
+<p><code>from module_name import function_name as fn</code>。导入模块的时候也可以这样做。</p>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -844,21 +850,37 @@
 <h4 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h4><ul>
 <li><p><strong>步骤</strong></p>
 <ol>
-<li>打开一个文件</li>
-<li>处理数据</li>
-<li>关闭文件</li>
+<li><p>打开一个文件</p>
+<p>注意，如果未加路径，会在<code>*.py</code>所在目录寻找。建议使用相对路径。</p>
+<blockquote>
+<p>注意 显示文件路径时，Windows系统使用反斜杠（\）而不是斜杠（/），但在代码中依然可以使用斜杠。</p>
+</blockquote>
+</li>
+<li><p>处理数据</p>
+</li>
+<li><p>关闭文件</p>
+</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pf = open(<span class="string">"certain_file"</span>, <span class="string">"rt"</span>)</span><br><span class="line"><span class="comment"># pf关联到open()函数返回的文件的对象</span></span><br><span class="line">t=pf.readline()</span><br><span class="line">print(t)</span><br><span class="line">pf.close()</span><br><span class="line"><span class="comment"># "rt"  read text</span></span><br><span class="line"><span class="comment"># "rb"	read bin 二进制文件</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">pf = open(<span class="string">"certain_file"</span>, <span class="string">"rt"</span>)</span><br><span class="line"><span class="comment"># pf关联到open()函数返回的文件的对象</span></span><br><span class="line">t=pf.readline()</span><br><span class="line">print(t)</span><br><span class="line">pf.close()</span><br><span class="line"><span class="comment"># "rt"  read text</span></span><br><span class="line"><span class="comment"># "rb"	read bin 二进制文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#通过with关键字，可以避免遗漏close()带来的问题</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"*.txt"</span>, <span class="string">"rt"</span>) <span class="keyword">as</span> t:</span><br><span class="line">    <span class="string">''' da'''</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>open(filename, mode)</code></p>
-<p>前一个参数是要打开的文件的名字，后一个参数是打开的模式（前一个字母表示何种操作/后一个字母表示打开的文件类型，如果是text，可以省略）</p>
+<p>前一个参数是要打开的文件的名字，后一个参数是打开的模式（前一个字母表示何种操作/后一个字母表示打开的文件类型，如果是text，可以省略）。如果不指定模式，默认为只读。</p>
 </li>
-<li><p><strong>常用的文件操作函数</strong></p>
+<li><p><strong>常用的文件读取操作</strong></p>
+<p>注意，<strong><code>getlines()</code>返回一个列表</strong>，里面的元素是字符串。可以使用循环读入，得到字符串。<code>for line in f.getlines()</code> 。注意，得到的字符串本身包含一个换行.但是<code>input()</code>函数不会，它会舍弃掉换行符。</p>
+<p>read()会读取全部内容，而且在字符串末尾会自动加上空行，可以使用<code>rstrip()</code>方法删除。</p>
+<p><code>for ？ in file_object</code>会逐行遍历文件内容，但是需要注意，每一行自带换行。</p>
+</li>
+<li><p><strong>常用的文件保存操作</strong></p>
+<p>write</p>
+<ul>
+<li><p>一种保存格式：JSON（JavaScript Object Notation）</p>
+<p>可以以在python同样的形式存储数据结构（诸如列表、字典）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存内容</span></span><br><span class="line">json.dump(<span class="string">"string to save"</span>, <span class="string">"file_object"</span>(文件名要包含.json扩展名))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取数据</span></span><br><span class="line">variable = json.load(<span class="string">"file_object"</span>)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>​        注意，<code>getlines()</code>返回一个列表，里面的元素是字符串。</p>
-<p>​        可以使用循环读入，得到字符串。<code>for line in f.getlines()</code> 。注意，得到的字符串本身包含一个换行</p>
-<p>​        但是<code>input()</code>函数不会，它会舍弃掉换行符。</p>
+</li>
+</ul>
 <h4 id="Pandas-模块读写文件"><a href="#Pandas-模块读写文件" class="headerlink" title="Pandas 模块读写文件"></a>Pandas 模块读写文件</h4><ul>
 <li><p><strong><code>python</code>的模块函数</strong></p>
 <ul>
@@ -954,6 +976,24 @@
 <p>动态绑定。程序运行时，由对象的类型确定变量的类型。比如 ：类重载操作符</p>
 </li>
 </ul>
+<h2 id="异常处理-amp-amp-测试"><a href="#异常处理-amp-amp-测试" class="headerlink" title="异常处理&amp;&amp;测试"></a>异常处理&amp;&amp;测试</h2><h4 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h4><blockquote>
+<p>python运行发生错误时，它都会创建一个异常对象。如果你编写了处理该异常的代码，程序将继续运行；如果未对异常进行处理，程序将停止并显示traceback，其中包含有关异常的报告</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> :</span><br><span class="line">   <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">except</span> exception_object:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">pass</span> <span class="comment">#只在try正常运行时候执行</span></span><br></pre></td></tr></table></figure>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>​    可以设置死循环（只有当按某些键值才会退出），”搭建测试环境“，手动尝试不同的输入。</p>
+<p>​    可以使用<code>unittest</code>模块自动化测试。    </p>
+<ul>
+<li><p>步骤</p>
+<ul>
+<li>导入模块</li>
+<li>创建自定义类（继承<code>unittest.TestCase</code>）</li>
+<li>定义测试函数（使用<code>assertEqual</code>方法判断结果是否正确）</li>
+</ul>
+</li>
+<li><p>断言</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">assertEqual(a, b)</span><br><span class="line">assertTrue(x)</span><br><span class="line">assertIn(x, list)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <h2 id="END-一些有趣的东西"><a href="#END-一些有趣的东西" class="headerlink" title="END.一些有趣的东西"></a>END.一些有趣的东西</h2><ul>
 <li><p><a href="http://www.laurentluce.com/posts/python-list-implementation/" target="_blank" rel="noopener">列表的底层实现</a></p>
 </li>
@@ -966,6 +1006,7 @@
 <li>缩进，将TAB设置成四个空格</li>
 <li>空行，体现block</li>
 <li>一行的字符数量不应该超过79/注释不应该超过72</li>
+<li>import进来的文件里面有同名的函数怎么办？不是说相当于复制进来吗</li>
 </ul>
 </li>
 </ul>
@@ -1034,7 +1075,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#概览"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概览</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#对象"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">对象</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#面向对象编程"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">面向对象编程</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#一些基本常识"><span class="toc-nav-number">1.0.3.</span> <span class="toc-nav-text">一些基本常识</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#程序编写初步"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">程序编写初步</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#基本（内置）数据类型"><span class="toc-nav-number">2.0.1.</span> <span class="toc-nav-text">基本（内置）数据类型</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#数学库"><span class="toc-nav-number">2.0.2.</span> <span class="toc-nav-text">数学库</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#字符串与列表"><span class="toc-nav-number">2.0.3.</span> <span class="toc-nav-text">字符串与列表</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#运算类型"><span class="toc-nav-number">2.0.4.</span> <span class="toc-nav-text">运算类型</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#语句（主要编写的结构）"><span class="toc-nav-number">2.0.5.</span> <span class="toc-nav-text">语句（主要编写的结构）</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#详解字符串，列表和元组"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">详解字符串，列表和元组</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#overview"><span class="toc-nav-number">3.0.1.</span> <span class="toc-nav-text">overview</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#字符串"><span class="toc-nav-number">3.0.2.</span> <span class="toc-nav-text">字符串</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#列表和元组"><span class="toc-nav-number">3.0.3.</span> <span class="toc-nav-text">列表和元组</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#语句"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">语句</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#条件语句"><span class="toc-nav-number">4.0.1.</span> <span class="toc-nav-text">条件语句</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#循环语句"><span class="toc-nav-number">4.0.2.</span> <span class="toc-nav-text">循环语句</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#搜索和排序"><span class="toc-nav-number">4.0.3.</span> <span class="toc-nav-text">搜索和排序</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#集合与字典"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">集合与字典</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#集合"><span class="toc-nav-number">5.0.1.</span> <span class="toc-nav-text">集合</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#字典"><span class="toc-nav-number">5.0.2.</span> <span class="toc-nav-text">字典</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#应用"><span class="toc-nav-number">5.0.3.</span> <span class="toc-nav-text">应用</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#函数"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">函数</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#形式"><span class="toc-nav-number">6.0.1.</span> <span class="toc-nav-text">形式</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#参数"><span class="toc-nav-number">6.0.2.</span> <span class="toc-nav-text">参数</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#递归"><span class="toc-nav-number">6.0.3.</span> <span class="toc-nav-text">递归</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#一些内置函数"><span class="toc-nav-number">6.0.4.</span> <span class="toc-nav-text">一些内置函数</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#程序结构"><span class="toc-nav-number">6.0.5.</span> <span class="toc-nav-text">程序结构</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#文件"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">文件</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#文件读写"><span class="toc-nav-number">7.0.1.</span> <span class="toc-nav-text">文件读写</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Pandas-模块读写文件"><span class="toc-nav-number">7.0.2.</span> <span class="toc-nav-text">Pandas 模块读写文件</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#对象-1"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">对象</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#类和对象"><span class="toc-nav-number">8.0.1.</span> <span class="toc-nav-text">类和对象</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#创建类和对象"><span class="toc-nav-number">8.0.2.</span> <span class="toc-nav-text">创建类和对象</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#特性"><span class="toc-nav-number">8.0.3.</span> <span class="toc-nav-text">特性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#继承-＆-多态"><span class="toc-nav-number">8.0.4.</span> <span class="toc-nav-text">继承 ＆ 多态</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#END-一些有趣的东西"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">END.一些有趣的东西</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#概览"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概览</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#对象"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">对象</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#面向对象编程"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">面向对象编程</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#一些基本常识"><span class="toc-nav-number">1.0.3.</span> <span class="toc-nav-text">一些基本常识</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#程序编写初步"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">程序编写初步</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#基本（内置）数据类型"><span class="toc-nav-number">2.0.1.</span> <span class="toc-nav-text">基本（内置）数据类型</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#数学库"><span class="toc-nav-number">2.0.2.</span> <span class="toc-nav-text">数学库</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#字符串与列表"><span class="toc-nav-number">2.0.3.</span> <span class="toc-nav-text">字符串与列表</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#运算类型"><span class="toc-nav-number">2.0.4.</span> <span class="toc-nav-text">运算类型</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#语句（主要编写的结构）"><span class="toc-nav-number">2.0.5.</span> <span class="toc-nav-text">语句（主要编写的结构）</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#详解字符串，列表和元组"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">详解字符串，列表和元组</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#overview"><span class="toc-nav-number">3.0.1.</span> <span class="toc-nav-text">overview</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#字符串"><span class="toc-nav-number">3.0.2.</span> <span class="toc-nav-text">字符串</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#列表和元组"><span class="toc-nav-number">3.0.3.</span> <span class="toc-nav-text">列表和元组</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#语句"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">语句</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#条件语句"><span class="toc-nav-number">4.0.1.</span> <span class="toc-nav-text">条件语句</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#循环语句"><span class="toc-nav-number">4.0.2.</span> <span class="toc-nav-text">循环语句</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#搜索和排序"><span class="toc-nav-number">4.0.3.</span> <span class="toc-nav-text">搜索和排序</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#集合与字典"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">集合与字典</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#集合"><span class="toc-nav-number">5.0.1.</span> <span class="toc-nav-text">集合</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#字典"><span class="toc-nav-number">5.0.2.</span> <span class="toc-nav-text">字典</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#应用"><span class="toc-nav-number">5.0.3.</span> <span class="toc-nav-text">应用</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#函数"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">函数</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#形式"><span class="toc-nav-number">6.0.1.</span> <span class="toc-nav-text">形式</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#参数"><span class="toc-nav-number">6.0.2.</span> <span class="toc-nav-text">参数</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#递归"><span class="toc-nav-number">6.0.3.</span> <span class="toc-nav-text">递归</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#一些内置函数"><span class="toc-nav-number">6.0.4.</span> <span class="toc-nav-text">一些内置函数</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#程序结构"><span class="toc-nav-number">6.0.5.</span> <span class="toc-nav-text">程序结构</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#文件"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">文件</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#文件读写"><span class="toc-nav-number">7.0.1.</span> <span class="toc-nav-text">文件读写</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Pandas-模块读写文件"><span class="toc-nav-number">7.0.2.</span> <span class="toc-nav-text">Pandas 模块读写文件</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#对象-1"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">对象</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#类和对象"><span class="toc-nav-number">8.0.1.</span> <span class="toc-nav-text">类和对象</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#创建类和对象"><span class="toc-nav-number">8.0.2.</span> <span class="toc-nav-text">创建类和对象</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#特性"><span class="toc-nav-number">8.0.3.</span> <span class="toc-nav-text">特性</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#继承-＆-多态"><span class="toc-nav-number">8.0.4.</span> <span class="toc-nav-text">继承 ＆ 多态</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#异常处理-amp-amp-测试"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">异常处理&amp;&amp;测试</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#异常"><span class="toc-nav-number">9.0.1.</span> <span class="toc-nav-text">异常</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#测试"><span class="toc-nav-number">9.0.2.</span> <span class="toc-nav-text">测试</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#END-一些有趣的东西"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">END.一些有趣的东西</span></a></li></ol>
         
         </div>
       </aside>
