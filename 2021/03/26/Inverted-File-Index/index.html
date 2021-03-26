@@ -71,12 +71,12 @@
 
   <!-- Pygments Highlight CSS -->
   
-<link rel="stylesheet" href="../../css/highlight.css">
-<link rel="stylesheet" href="../../css/widget.css">
-<link rel="stylesheet" href="../../css/rocket.css">
-<link rel="stylesheet" href="../../css/signature.css">
-<link rel="stylesheet" href="../../css/catalog.css">
-<link rel="stylesheet" href="../../css/livemylife.css">
+<link rel="stylesheet" href="../../../../css/highlight.css">
+<link rel="stylesheet" href="../../../../css/widget.css">
+<link rel="stylesheet" href="../../../../css/rocket.css">
+<link rel="stylesheet" href="../../../../css/signature.css">
+<link rel="stylesheet" href="../../../../css/catalog.css">
+<link rel="stylesheet" href="../../../../css/livemylife.css">
 
 
   
@@ -133,10 +133,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yangshenyi.github.io/tags/Data-Structure/">
+  <link rel="canonical" href="http://yangshenyi.github.io/2021/03/26/Inverted-File-Index/">
   <title>
     
-    My Lapuda
+    Inverted-File-Index - My Lapuda
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -195,6 +195,13 @@
 
           
           <li>
+            <a href="/archive/">Archives</a>
+          </li>
+          
+          
+
+          
+          <li>
             <a href="/about/">About</a>
           </li>
           
@@ -203,13 +210,6 @@
           
           <li>
             <a href="/categories/">Categories</a>
-          </li>
-          
-          
-
-          
-          <li>
-            <a href="/archive/">Archives</a>
           </li>
           
           
@@ -274,8 +274,8 @@
 
   <style type="text/css">
     header.intro-header {
-       /*page*/
-        background-image: url('/img/header_img/archive_bg2.jpg');
+       /*post*/
+        background-image: url('head.png');
       
     }
 
@@ -297,10 +297,42 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>YangShenyi&#39;s Laputa</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">True mastery of any skill takes a lifetime</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Data Structure-File" title="Data Structure-File">Data Structure-File</a>
+              
+            </div>
+            <h1>Inverted-File-Index</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by yangshenyi on
+              2021-03-26
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">2</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">688</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -341,301 +373,241 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-	<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+        <h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>搜索引擎是怎么工作的呢？</p>
+<p>肯定是要做search，那么怎么查找呢？倒序文件索引。</p>
+<p>它的基本结构如下：</p>
+<p><img src="show.png" alt="结构"></p>
+<p>term dictionary and posting list，好像一个字典。</p>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><h3 id="创建一个索引"><a href="#创建一个索引" class="headerlink" title="创建一个索引"></a>创建一个索引</h3><p>在创建时候，我们需要使用spider来爬取所有的document。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">BlockCnt = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">read</span> a document D)&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">read</span> a term T in D)&#123;</span><br><span class="line">        <span class="comment">//如果主存不够用了</span></span><br><span class="line">        <span class="keyword">if</span>(out of memory)&#123;</span><br><span class="line">            Write BlockIndex[BlockCnt] to disk;</span><br><span class="line">            BlockCnt++;</span><br><span class="line">            FreeMemory;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(Find(Dictionary, T) == False)</span><br><span class="line">            	Insert(Dictionary, T);</span><br><span class="line">        Get T<span class="number">'</span>s posting <span class="built_in">list</span>;</span><br><span class="line">            Insert a node to T<span class="number">'</span>s posting <span class="built_in">list</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Write the inverted index to disk;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;BlockCnt; i++)&#123;</span><br><span class="line">    Merge(InvertedIndex, BlockIndex[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>key</p>
+<ul>
+<li><p>怎么知道一个term是一个term呢？</p>
+<p>token analyzer</p>
+<ul>
+<li><p>word stemming（<a href="https://baike.baidu.com/item/%E8%AF%8D%E5%B9%B2%E6%8F%90%E5%8F%96/22776974?fr=aladdin" target="_blank" rel="noopener">词干提取</a>）</p>
+<p>etc. in English</p>
+<p><img src="word-stemming.png" alt="word stemming"></p>
+</li>
+<li><p>stop words(stop filter)</p>
+<p>去除掉一些没有意义的词</p>
+</li>
+</ul>
+</li>
+<li><p>怎么从一张很大的dictionary里面找到我们的term呢？</p>
+<ul>
+<li><p>搜索树</p>
+</li>
+<li><p>哈希 常数时间，但是很难实现，而且范围查找很耗时间，因为结构类似的词可能隔得很远。</p>
+</li>
+</ul>
+</li>
+<li><p>将数据保存到外存里面。数据太多了，动态保存。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h2><h3 id="Distributed-indexing"><a href="#Distributed-indexing" class="headerlink" title="Distributed indexing"></a>Distributed indexing</h3><p>​    有很多台主机。将它们看作图上的结点，每一个结点存储a subset of collection。</p>
+<ul>
+<li><p>term-partitioned index</p>
+<p>读入一个term，选取适当主机（每台主机的term的首字母具有共性），插入存储</p>
+</li>
+<li><p>document-partitioned index</p>
+<p>每台主机存储一定量的document</p>
+</li>
+</ul>
+<h3 id="Dynamic-indexing"><a href="#Dynamic-indexing" class="headerlink" title="Dynamic indexing"></a>Dynamic indexing</h3><p>​    当DOC进来的时候，如果term在dictionary了，我们就做posting list update，不然得插入新的结点，这会很耗时间。</p>
+<h3 id="Compression"><a href="#Compression" class="headerlink" title="Compression"></a>Compression</h3><p>一个是压缩dictionary，一个是压缩posting list里面指向DOC的“指针”。</p>
+<p>但是，后者时候会带来寻找的困难呢（要做求和</p>
+<h3 id="Thresholding"><a href="#Thresholding" class="headerlink" title="Thresholding"></a>Thresholding</h3><ol>
+<li>没必要返回所有的匹配页面。我们设定一个阈值，把那些重要的，相关度高的结果返回。如果多关键字搜索，做intersection前可能遗漏了一些</li>
+<li>怎么判断重要与否呢？或许可以看它的frequency，这个值越小，意味着越少的DOC能包含它，我们做一个递增的排序，按照前面的关键字搜索，一步步扩大到结果差不多为止，不必全部搜索求交集。</li>
+</ol>
+<p><img src="thresholding_query.png" alt="threshold_query"></p>
+<h2 id="衡量标准"><a href="#衡量标准" class="headerlink" title="衡量标准"></a>衡量标准</h2><p>对于一个搜索引擎，我们需要关注</p>
+<ul>
+<li><p>它做索引有多快。</p>
+<p>number of docs per hour</p>
+</li>
+<li><p>搜索有多快</p>
+<p>latency  as a function of index size(不能直接用latency， 因为不能保证index是一样大的)</p>
+</li>
+<li><p>查询语句的支持</p>
+<p>比如 关键字1-关键字2，那么查询的结果就应该包含前者但是不含后者。</p>
+</li>
+<li><p>用户体验感？</p>
+<ul>
+<li>数据，是否都呈现了含关键字的结果</li>
+<li>信息，相关度怎么样<ul>
+<li>benchmark document collection</li>
+<li>benchmark suite of queries</li>
+<li>binary assessment <ul>
+<li>page rank</li>
+<li>semantic web</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="assessment.png" alt="相关度的评估"></p>
 
-      
-<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
 
-      
-
-      <!-- 归档列表 -->
-
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2021">
-          <span class="tag-text">2021</span>
-        </span>
-        <ul>
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
           
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            03-13
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/03/13/python-basic-grammar/" style="color: #0085a1">
-              <span>
-                python-basic-grammar
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
           
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            03-13
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/03/13/computer-organization-and-design-Preface/" style="color: #0085a1">
-              <span>
-                computer-organization-and-design-Preface
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            03-06
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/03/06/AVL-And-Splay-Tree-0/" style="color: #0085a1">
-              <span>
-                AVL-And-Splay-Tree
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            02-24
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/02/24/git-basis/" style="color: #0085a1">
-              <span>
-                git_basis
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+          <li class="next">
+            <a href="/2021/03/23/heap/" data-toggle="tooltip" data-placement="top" title="heap">Next Post &rarr;</a>
           </li>
           
         </ul>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            Hope you like this blog or find it useful for you!If the images or something else used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+          </p>
+        </div>
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
       </div>
-      
 
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
 
-    </div>
-  </div>
-</div>
-
-
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
     
-        <!--   -->
-<h5><a href="/">VISITORS</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-<!--   -->
-
-        <hr>
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#引入"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">引入</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#操作"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">操作</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#创建一个索引"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">创建一个索引</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#策略"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">策略</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Distributed-indexing"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">Distributed indexing</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Dynamic-indexing"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">Dynamic indexing</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Compression"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">Compression</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Thresholding"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">Thresholding</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#衡量标准"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">衡量标准</span></a></li></ol>
+        
+        </div>
+      </aside>
     
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
         <!-- Featured Tags -->
-
-<section>
-  <!-- no hr -->
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#Data Structure" title="Data Structure" rel="1">Data Structure</a>
-    
-    
-    
-    <a href="/tags/#hardware" title="hardware" rel="1">hardware</a>
-    
-    
-    
-    <a href="/tags/#riscv" title="riscv" rel="1">riscv</a>
-    
-    
-    
-    <a href="/tags/#git" title="git" rel="1">git</a>
-    
-    
-    
-    <a href="/tags/#python" title="python" rel="1">python</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/img/avatar/headpicture.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>Start earlier</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/yangshenyi">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
         
-<!-- <h5>RECENT POSTS</h5> -->
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../../2021/03/13/python-basic-grammar/">
-      <li>python-basic-grammar</li>
-    </a>
-    
-    <a href="../../2021/03/13/computer-organization-and-design-Preface/">
-      <li>computer-organization-and-design-Preface</li>
-    </a>
-    
-    <a href="../../2021/03/06/AVL-And-Splay-Tree-0/">
-      <li>AVL-And-Splay-Tree</li>
-    </a>
-    
-    <a href="../../2021/02/24/git-basis/">
-      <li>git_basis</li>
-    </a>
-    
-  </ul>
-</div>
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Data Structure-File" title="Data Structure-File">Data Structure-File</a>
+            
+          </div>
+        </section>
+        
 
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-
-        <hr>
-    
         
-    <!-- <h5>ARCHIVES</h5> -->
-    <h5><a href="/archives/">ARCHIVES</a></h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/03/">March 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li></ul>
+      </div>
     </div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-<!-- <h5>categories</h5> -->
-<h5><a href="/categories/">CATEGORIES</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#Data Structure &amp;&amp; Algorithm AVL trees">
-      <li>Data Structure &amp;&amp; Algorithm AVL trees</li>
-    </a>
-    
-    <a href="/categories/#computer-organization-and-design">
-      <li>computer-organization-and-design</li>
-    </a>
-    
-    <a href="/categories/#git">
-      <li>git</li>
-    </a>
-    
-    <a href="/categories/#python">
-      <li>python</li>
-    </a>
-    
-    <a href="/categories/#language-grammar">
-      <li>language-grammar</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-    
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 	<!-- Footer (contains ThemeColor、viewer) -->
@@ -1093,6 +1065,21 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 	<!-- <img src="http://yangshenyi.github.io/img/icon_wechat.png" width="0" height="0" /> -->
 	<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":280,"height":560},"mobile":{"show":false},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>

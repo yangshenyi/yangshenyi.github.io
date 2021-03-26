@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yangshenyi.github.io/2021/03/26/Inverted-File-Index/</loc>
+    <lastmod>2021-03-26</lastmod>
+  </url>
+  <url>
+    <loc>http://yangshenyi.github.io/2021/03/23/heap/</loc>
+    <lastmod>2021-03-26</lastmod>
+  </url>
+  <url>
+    <loc>http://yangshenyi.github.io/2021/03/06/AVL-And-Splay-Tree-0/</loc>
+    <lastmod>2021-03-26</lastmod>
+  </url>
+  <url>
     <loc>http://yangshenyi.github.io/2021/03/13/python-basic-grammar/</loc>
     <lastmod>2021-03-19</lastmod>
   </url>
   <url>
     <loc>http://yangshenyi.github.io/2021/03/13/computer-organization-and-design-Preface/</loc>
     <lastmod>2021-03-13</lastmod>
-  </url>
-  <url>
-    <loc>http://yangshenyi.github.io/2021/03/06/AVL-And-Splay-Tree-0/</loc>
-    <lastmod>2021-03-07</lastmod>
   </url>
   <url>
     <loc>http://yangshenyi.github.io/2021/02/24/git-basis/</loc>

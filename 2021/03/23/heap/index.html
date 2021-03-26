@@ -71,12 +71,12 @@
 
   <!-- Pygments Highlight CSS -->
   
-<link rel="stylesheet" href="../css/highlight.css">
-<link rel="stylesheet" href="../css/widget.css">
-<link rel="stylesheet" href="../css/rocket.css">
-<link rel="stylesheet" href="../css/signature.css">
-<link rel="stylesheet" href="../css/catalog.css">
-<link rel="stylesheet" href="../css/livemylife.css">
+<link rel="stylesheet" href="../../../../css/highlight.css">
+<link rel="stylesheet" href="../../../../css/widget.css">
+<link rel="stylesheet" href="../../../../css/rocket.css">
+<link rel="stylesheet" href="../../../../css/signature.css">
+<link rel="stylesheet" href="../../../../css/catalog.css">
+<link rel="stylesheet" href="../../../../css/livemylife.css">
 
 
   
@@ -133,10 +133,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yangshenyi.github.io/tags/">
+  <link rel="canonical" href="http://yangshenyi.github.io/2021/03/23/heap/">
   <title>
     
-    Tags - My Lapuda
+    heap - My Lapuda
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -274,8 +274,8 @@
 
   <style type="text/css">
     header.intro-header {
-       /*page*/
-        background-image: url('/img/header_img/tag_bg.jpg');
+       /*post*/
+        background-image: url('');
       
     }
 
@@ -297,10 +297,42 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Tags</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">I don’t know where I am going, but I am on my way......</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Data Structure-Stack&amp;&amp;Heap" title="Data Structure-Stack&amp;&amp;Heap">Data Structure-Stack&amp;&amp;Heap</a>
+              
+            </div>
+            <h1>heap</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by yangshenyi on
+              2021-03-23
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">2</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">510</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -341,193 +373,185 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-	<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <!-- 标签云 -->
-      <div id='tag_cloud' class="tags">
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h1 id="Leftits-heap-左式堆"><a href="#Leftits-heap-左式堆" class="headerlink" title="Leftits heap(左式堆)"></a>Leftits heap(左式堆)</h1><h2 id="目标-背景"><a href="#目标-背景" class="headerlink" title="目标/背景"></a>目标/背景</h2><p>​    对于二叉堆，如果我们想要合并两个堆，时间复杂度是O（n）（线性时间建堆）。考虑到要填充一个数组，显然是$\theta (n)$的复杂度。为了更快的开展合并操作，我们引入新的数据结构，左式堆。它也是堆，具有堆序性，但它不再是平衡的了（二叉堆具有完全二叉树的平衡性）。</p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><ul>
+<li><p>首先我们引入一个概念，NPL(null path length)。</p>
+<p>NPL(X) = 从节点X往下到一个没有两个儿子节点（度为0或者1）的最短路径长度。</p>
+<p>NPL（空节点）=-1； NPL（度小于2的非空节点）=0</p>
+<p>于是还可以得到，一个结点的NPL比min(它的各个儿子的NPL)大1。其实不就是右儿子吗。</p>
+</li>
+<li><p>而对于一个左式堆，它的任意一节点的左儿子的NPL总是不小于右儿子的。</p>
+<p>可以看出，这种堆趋向于加深左儿子的深度；它的右路径自然地也是最短的那条</p>
+<ul>
+<li><p>定理</p>
+<p>$A \ leftist\ tree\ with\ r\ nodes\ on\ the\ right\ path\ must\ have\ at\ least\ 2^r- 1\ nodes $</p>
+<p>于是就得到，它的右路径的长是$O(log(N+1)$的。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><p>​    这里解决合并两个$leftist\ heap$是怎么做的。因为插入和删除都可以归结为合并。</p>
+<p>​    取最小堆序性。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//结点的定义</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>* <span class="title">PriorityQueue</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> value;</span><br><span class="line">    PriorityQueue left;</span><br><span class="line">    PriorityQueue right;</span><br><span class="line">    <span class="keyword">int</span> npl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//递归合并算法</span></span><br><span class="line"><span class="function">PriorityQueue <span class="title">Merge</span><span class="params">(PriorityQueue H1, PriorityQueue H2)</span></span>&#123;</span><br><span class="line">    <span class="comment">//define return cases </span></span><br><span class="line">    <span class="keyword">if</span>(!H1) <span class="keyword">return</span> H2;</span><br><span class="line">    <span class="keyword">if</span>(!H2) <span class="keyword">return</span> H1;</span><br><span class="line">    <span class="keyword">if</span>(H1-&gt;value &lt; H2-&gt;value) <span class="keyword">return</span> Merge1(H1, H2);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> Merge1(H2, H1);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//we must ensure the first root is smaller than second root</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> PriorityQueue <span class="title">Merge1</span><span class="params">(PriorityQueue H1, PriorityQueue H2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!H1-&gt;left)&#123;</span><br><span class="line">        H1-&gt;left = H2;</span><br><span class="line">    &#125;<span class="comment">// IF matches, H1 is a single node</span></span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">        H1-&gt;right = Merge(H1-&gt;right, H2);</span><br><span class="line">        <span class="comment">//we have already done our merge in this subtree</span></span><br><span class="line">        <span class="comment">//when it obeys our rule, we must fix it, just do swapping</span></span><br><span class="line">        <span class="keyword">if</span>(H1-&gt;left-&gt;npl&lt;H1-&gt;right-&gt;npl)</span><br><span class="line">            SwapChild(H1);</span><br><span class="line">        H1-&gt;npl = H1-&gt;right-&gt;npl+<span class="number">1</span>;<span class="comment">//update npl</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> H1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/2021/03/26/Inverted-File-Index/" data-toggle="tooltip" data-placement="top" title="Inverted-File-Index">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/2021/03/13/python-basic-grammar/" data-toggle="tooltip" data-placement="top" title="python-basic-grammar">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
         
-        <a href="#Data Structure-Tree" title="Data Structure-Tree" rel="1">Data Structure-Tree</a>
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            Hope you like this blog or find it useful for you!If the images or something else used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+          </p>
+        </div>
+        <!-- tip end -->
         
-        <a href="#Data Structure-File" title="Data Structure-File" rel="1">Data Structure-File</a>
+
         
-        <a href="#hardware" title="hardware" rel="1">hardware</a>
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
         
-        <a href="#riscv" title="riscv" rel="1">riscv</a>
-        
-        <a href="#python" title="python" rel="1">python</a>
-        
-        <a href="#Data Structure-Stack&amp;&amp;Heap" title="Data Structure-Stack&amp;&amp;Heap" rel="1">Data Structure-Stack&amp;&amp;Heap</a>
-        
-        <a href="#git" title="git" rel="1">git</a>
-        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
       </div>
 
-      <!-- 标签列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="Data Structure-Tree">
-          <span class="tag-text">Data Structure-Tree</span>
-        </span>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/03/06/AVL-And-Splay-Tree-0/">
-            <h2 class="post-title">
-              AVL-And-Splay-Tree
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="Data Structure-File">
-          <span class="tag-text">Data Structure-File</span>
-        </span>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/03/26/Inverted-File-Index/">
-            <h2 class="post-title">
-              Inverted-File-Index
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="hardware">
-          <span class="tag-text">hardware</span>
-        </span>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/03/13/computer-organization-and-design-Preface/">
-            <h2 class="post-title">
-              computer-organization-and-design-Preface
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="riscv">
-          <span class="tag-text">riscv</span>
-        </span>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/03/13/computer-organization-and-design-Preface/">
-            <h2 class="post-title">
-              computer-organization-and-design-Preface
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="python">
-          <span class="tag-text">python</span>
-        </span>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/03/13/python-basic-grammar/">
-            <h2 class="post-title">
-              python-basic-grammar
-            </h2>
-            
-            <h3 class="post-subtitle">
-              待补充
-            </h3>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="Data Structure-Stack&amp;&amp;Heap">
-          <span class="tag-text">Data Structure-Stack&amp;&amp;Heap</span>
-        </span>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/03/23/heap/">
-            <h2 class="post-title">
-              heap
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="git">
-          <span class="tag-text">git</span>
-        </span>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/02/24/git-basis/">
-            <h2 class="post-title">
-              git_basis
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-      </div>
-      
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
 
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Leftits-heap-左式堆"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Leftits heap(左式堆)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#目标-背景"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">目标&#x2F;背景</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#性质"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">性质</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#操作"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">操作</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Data Structure-Stack&amp;&amp;Heap" title="Data Structure-Stack&amp;&amp;Heap">Data Structure-Stack&amp;&amp;Heap</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+      </div>
     </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 	<!-- Footer (contains ThemeColor、viewer) -->
