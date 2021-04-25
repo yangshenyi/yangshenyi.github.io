@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yangshenyi.github.io/2021/04/25/dp/</loc>
+    <lastmod>2021-04-25</lastmod>
+  </url>
+  <url>
+    <loc>http://yangshenyi.github.io/2021/04/13/divide-and-conquer/</loc>
+    <lastmod>2021-04-25</lastmod>
+  </url>
+  <url>
     <loc>http://yangshenyi.github.io/2021/03/23/heap/</loc>
-    <lastmod>2021-03-28</lastmod>
+    <lastmod>2021-04-04</lastmod>
   </url>
   <url>
     <loc>http://yangshenyi.github.io/2021/03/26/Inverted-File-Index/</loc>

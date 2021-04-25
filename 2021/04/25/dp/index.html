@@ -71,12 +71,12 @@
 
   <!-- Pygments Highlight CSS -->
   
-<link rel="stylesheet" href="../../css/highlight.css">
-<link rel="stylesheet" href="../../css/widget.css">
-<link rel="stylesheet" href="../../css/rocket.css">
-<link rel="stylesheet" href="../../css/signature.css">
-<link rel="stylesheet" href="../../css/catalog.css">
-<link rel="stylesheet" href="../../css/livemylife.css">
+<link rel="stylesheet" href="../../../../css/highlight.css">
+<link rel="stylesheet" href="../../../../css/widget.css">
+<link rel="stylesheet" href="../../../../css/rocket.css">
+<link rel="stylesheet" href="../../../../css/signature.css">
+<link rel="stylesheet" href="../../../../css/catalog.css">
+<link rel="stylesheet" href="../../../../css/livemylife.css">
 
 
   
@@ -133,10 +133,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yangshenyi.github.io/archives/2021/">
+  <link rel="canonical" href="http://yangshenyi.github.io/2021/04/25/dp/">
   <title>
     
-    My Lapuda
+    dp - My Lapuda
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -274,8 +274,8 @@
 
   <style type="text/css">
     header.intro-header {
-       /*page*/
-        background-image: url('/img/header_img/archive_bg2.jpg');
+       /*post*/
+        background-image: url('head.png');
       
     }
 
@@ -297,10 +297,42 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>YangShenyi&#39;s Laputa</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">True mastery of any skill takes a lifetime</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#advanced algorithm" title="advanced algorithm">advanced algorithm</a>
+              
+            </div>
+            <h1>dp</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by yangshenyi on
+              2021-04-25
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">2</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">735</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -341,377 +373,211 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-	<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+        <h1 id="dynamic-programming"><a href="#dynamic-programming" class="headerlink" title="dynamic programming"></a>dynamic programming</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
+<li><p>有些问题，我们用递归来做，如斐波那契列。但是，在递归过程中，很多步骤是重复的，并且，这可能占据了很大一部分，就很浪费时间。动态规划，将所有的步骤，中间计算结果，都存储了，只需要计算一次，不会重复。</p>
+</li>
+<li><p>它和分治法有点像。不同的是，它是自底向上的，我们已经明确并最小规模的问题是什么东西了并且直接从最小的规模的那一群东西开始做。是按照k来划分阶段（或者说，不同的规模），总之，就是从最小的规模开始计算最优解，并且保存到一张表里面。</p>
+</li>
+<li><p>自下而上的计算，需要<strong>状态转移方程</strong>，即$f(k+1) = S(f(i)),\ where\ i\ge 0\ and\ i\le\ k $</p>
+<p>下一阶段的目标量和之前的量的关系</p>
+</li>
+<li><p>动态规划，或者更应该叫做动态填表法</p>
+</li>
+</ul>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="分杆问题"><a href="#分杆问题" class="headerlink" title="分杆问题"></a>分杆问题</h3><p><img src="dp/rod-cutting.png" alt="rod-cutting"></p>
+<ul>
+<li>暴力搜索$O(2^N)$，不解释</li>
+<li>传统递归 $O(2^N)$</li>
+<li>dp $O(N^2)$，如下所示</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span> to n:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="number">1</span> to i/<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">if</span> i&gt;M:</span><br><span class="line">            L(i) = MAX(L(j)+L(i-j))</span><br><span class="line">        <span class="keyword">else</span> :</span><br><span class="line">            L(i) = MAX(P(i), MAX(L(j)+L(i-j)))</span><br></pre></td></tr></table></figure>
+<h3 id="optimal-binary-search-tree"><a href="#optimal-binary-search-tree" class="headerlink" title="optimal binary search tree"></a>optimal binary search tree</h3><ul>
+<li>​    静态查找（没有插入和删除）的最佳方式</li>
+</ul>
+<h4 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h4><p>​    考虑一些有概率（权重）的节点</p>
+<p>​        $w_i\ and\ p_i $ </p>
+<p>​        $And\ we \ can\ easily\ get\ T(N)=\sum_{i=1}^Np_i*(1+d_i)  $</p>
+<p>​    现在我们尝试使得<code>T(N)</code>达到最小。</p>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p><img src="dp/obst1.png" style="zoom:67%;" /></p>
+<ul>
+<li>对于任意一个序列，我们都选一个作为分割点，总之就是三部分，<strong>分割点以及分出来的两个更小序列</strong>。直到序列可以直接出答案（只有一个节点）</li>
+<li>左右子树上的需要在计算cost的时候加上一层深度，意味着每一个节点的概率值得加一遍，也就是这棵子树的总权重。</li>
+</ul>
+<h3 id="All-pairs-shortest-path"><a href="#All-pairs-shortest-path" class="headerlink" title="All pairs shortest path"></a>All pairs shortest path</h3><p>​    我们依次考察k个点，k从0（第一个点）开始增加，一直到N-1（全部点）为止，那就考虑了所有点。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="关于dp与分治"><a href="#关于dp与分治" class="headerlink" title="关于dp与分治"></a>关于dp与分治</h3><p>dp也是在做和分治类似的穷举，只是有了存储状态的表，所以避免了重复计算，用空间换取了时间。</p>
+<ul>
+<li><p>递归+记忆化搜索 是一种自上而下的dp</p>
+<p>其实所有的dp都可以用递归来做</p>
+</li>
+<li><p>dp是一种自下而上的解法，直接从直接解决的小规模的最优解出发，不断推往下一阶段，逐步填充状态表。</p>
+</li>
+</ul>
+<h3 id="设计dp"><a href="#设计dp" class="headerlink" title="设计dp"></a>设计dp</h3><ul>
+<li>识别是否是一个dp问题<ul>
+<li>子问题存在重叠，有重复计算的部分，否则没意义</li>
+<li>存在依赖性，当前阶段的最优解依赖于前面各阶段的最优解</li>
+</ul>
+</li>
+<li>定义最优化解的值，抽象状态转移方程</li>
+<li>自下而上计算</li>
+<li>重构</li>
+</ul>
 
-      
-<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
 
-      
-
-      <!-- 归档列表 -->
-
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2021">
-          <span class="tag-text">2021</span>
-        </span>
-        <ul>
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
           
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            04-25
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/04/25/dp/" style="color: #0085a1">
-              <span>
-                dp
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
           
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            04-13
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/04/13/divide-and-conquer/" style="color: #0085a1">
-              <span>
-                divide-and-conquer
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            03-26
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/03/26/Inverted-File-Index/" style="color: #0085a1">
-              <span>
-                Inverted-File-Index
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            03-23
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/03/23/heap/" style="color: #0085a1">
-              <span>
-                heap
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            03-13
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/03/13/python-basic-grammar/" style="color: #0085a1">
-              <span>
-                python-basic-grammar
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            03-13
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/03/13/computer-organization-and-design-Preface/" style="color: #0085a1">
-              <span>
-                computer-organization-and-design-Preface
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            03-06
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/03/06/AVL-And-Splay-Tree-0/" style="color: #0085a1">
-              <span>
-                AVL-And-Splay-Tree
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-          </li>
-          
-          <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-          <li>
-            02-24
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2021/02/24/git-basis/" style="color: #0085a1">
-              <span>
-                git_basis
-              </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+          <li class="next">
+            <a href="/2021/04/13/divide-and-conquer/" data-toggle="tooltip" data-placement="top" title="divide-and-conquer">Next Post &rarr;</a>
           </li>
           
         </ul>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            Hope you like this blog or find it useful for you!If the images or something else used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+          </p>
+        </div>
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
       </div>
-      
 
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
 
-    </div>
-  </div>
-</div>
-
-
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
     
-        <!--   -->
-<h5><a href="/">VISITORS</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-<!--   -->
-
-        <hr>
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#dynamic-programming"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">dynamic programming</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#介绍"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">介绍</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#例子"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">例子</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#分杆问题"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">分杆问题</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#optimal-binary-search-tree"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">optimal binary search tree</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#引入"><span class="toc-nav-number">1.2.2.1.</span> <span class="toc-nav-text">引入</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#实现"><span class="toc-nav-number">1.2.2.2.</span> <span class="toc-nav-text">实现</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#All-pairs-shortest-path"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">All pairs shortest path</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#总结"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">总结</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#关于dp与分治"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">关于dp与分治</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#设计dp"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">设计dp</span></a></li></ol></li></ol></li></ol>
+        
+        </div>
+      </aside>
     
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
         <!-- Featured Tags -->
-
-<section>
-  <!-- no hr -->
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#Data Structure-Tree" title="Data Structure-Tree" rel="1">Data Structure-Tree</a>
-    
-    
-    
-    <a href="/tags/#hardware" title="hardware" rel="1">hardware</a>
-    
-    
-    
-    <a href="/tags/#riscv" title="riscv" rel="1">riscv</a>
-    
-    
-    
-    <a href="/tags/#Data Structure-File" title="Data Structure-File" rel="1">Data Structure-File</a>
-    
-    
-    
-    <a href="/tags/#git" title="git" rel="1">git</a>
-    
-    
-    
-    <a href="/tags/#Data Structure-Stack&amp;&amp;Heap" title="Data Structure-Stack&amp;&amp;Heap" rel="1">Data Structure-Stack&amp;&amp;Heap</a>
-    
-    
-    
-    <a href="/tags/#python" title="python" rel="1">python</a>
-    
-    
-    
-    <a href="/tags/#advanced algorithm" title="advanced algorithm" rel="1">advanced algorithm</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/img/avatar/headpicture.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>Start earlier</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/yangshenyi">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
         
-<!-- <h5>RECENT POSTS</h5> -->
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../../2021/04/25/dp/">
-      <li>dp</li>
-    </a>
-    
-    <a href="../../2021/04/13/divide-and-conquer/">
-      <li>divide-and-conquer</li>
-    </a>
-    
-    <a href="../../2021/03/26/Inverted-File-Index/">
-      <li>Inverted-File-Index</li>
-    </a>
-    
-    <a href="../../2021/03/23/heap/">
-      <li>heap</li>
-    </a>
-    
-    <a href="../../2021/03/13/python-basic-grammar/">
-      <li>python-basic-grammar</li>
-    </a>
-    
-  </ul>
-</div>
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#advanced algorithm" title="advanced algorithm">advanced algorithm</a>
+            
+          </div>
+        </section>
+        
 
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-
-        <hr>
-    
         
-    <!-- <h5>ARCHIVES</h5> -->
-    <h5><a href="/archives/">ARCHIVES</a></h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="03/">March 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="02/">February 2021</a><span class="archive-list-count">1</span></li></ul>
+      </div>
     </div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-<!-- <h5>categories</h5> -->
-<h5><a href="/categories/">CATEGORIES</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#Data Structure &amp;&amp; Algorithm">
-      <li>Data Structure &amp;&amp; Algorithm</li>
-    </a>
-    
-    <a href="/categories/#computer-organization-and-design">
-      <li>computer-organization-and-design</li>
-    </a>
-    
-    <a href="/categories/#git">
-      <li>git</li>
-    </a>
-    
-    <a href="/categories/#python">
-      <li>python</li>
-    </a>
-    
-    <a href="/categories/#language-grammar">
-      <li>language-grammar</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-    
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 	<!-- Footer (contains ThemeColor、viewer) -->
