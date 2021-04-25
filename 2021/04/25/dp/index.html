@@ -195,7 +195,7 @@
 
           
           <li>
-            <a href="/about/">About</a>
+            <a href="/archive/">Archives</a>
           </li>
           
           
@@ -209,14 +209,14 @@
 
           
           <li>
-            <a href="/archive/">Archives</a>
+            <a href="/tags/">Tags</a>
           </li>
           
           
 
           
           <li>
-            <a href="/tags/">Tags</a>
+            <a href="/about/">About</a>
           </li>
           
           
@@ -315,11 +315,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">2</span> Minutes
+              Estimated Reading Time <span class="post-count">3</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">735</span> In Total
+              Words <span class="post-count">821</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -392,7 +392,7 @@
 <li><p>动态规划，或者更应该叫做动态填表法</p>
 </li>
 </ul>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="分杆问题"><a href="#分杆问题" class="headerlink" title="分杆问题"></a>分杆问题</h3><p><img src="dp/rod-cutting.png" alt="rod-cutting"></p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="分杆问题"><a href="#分杆问题" class="headerlink" title="分杆问题"></a>分杆问题</h3><p><img src="rod-cutting.png" alt="rod-cutting"></p>
 <ul>
 <li>暴力搜索$O(2^N)$，不解释</li>
 <li>传统递归 $O(2^N)$</li>
@@ -406,13 +406,13 @@
 <p>​        $w_i\ and\ p_i $ </p>
 <p>​        $And\ we \ can\ easily\ get\ T(N)=\sum_{i=1}^Np_i*(1+d_i)  $</p>
 <p>​    现在我们尝试使得<code>T(N)</code>达到最小。</p>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p><img src="dp/obst1.png" style="zoom:67%;" /></p>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p><img src="obst1.png" alt=""></p>
 <ul>
 <li>对于任意一个序列，我们都选一个作为分割点，总之就是三部分，<strong>分割点以及分出来的两个更小序列</strong>。直到序列可以直接出答案（只有一个节点）</li>
 <li>左右子树上的需要在计算cost的时候加上一层深度，意味着每一个节点的概率值得加一遍，也就是这棵子树的总权重。</li>
 </ul>
 <h3 id="All-pairs-shortest-path"><a href="#All-pairs-shortest-path" class="headerlink" title="All pairs shortest path"></a>All pairs shortest path</h3><p>​    我们依次考察k个点，k从0（第一个点）开始增加，一直到N-1（全部点）为止，那就考虑了所有点。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AllPairs</span><span class="params">( TwoDimArray A, TwoDimArray D, <span class="keyword">int</span> N )</span> </span></span><br><span class="line"><span class="function"></span>&#123;   <span class="keyword">int</span>  i, j, k; </span><br><span class="line">    <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt; N; i++ )  <span class="comment">/* Initialize D */</span> </span><br><span class="line">         <span class="keyword">for</span>( j = <span class="number">0</span>; j &lt; N; j++ )</span><br><span class="line">	 D[ i ][ j ] = A[ i ][ j ]; </span><br><span class="line">    <span class="keyword">for</span>( k = <span class="number">0</span>; k &lt; N; k++ )  <span class="comment">/* add one vertex k into the path */</span></span><br><span class="line">         <span class="keyword">for</span>( i = <span class="number">0</span>; i &lt; N; i++ ) </span><br><span class="line">	 <span class="keyword">for</span>( j = <span class="number">0</span>; j &lt; N; j++ ) </span><br><span class="line">	    <span class="keyword">if</span>( D[ i ][ k ] + D[ k ][ j ] &lt; D[ i ][ j ] ) </span><br><span class="line">		<span class="comment">/* Update shortest path */</span> </span><br><span class="line">		 D[ i ][ j ] = D[ i ][ k ] + D[ k ][ j ]; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="关于dp与分治"><a href="#关于dp与分治" class="headerlink" title="关于dp与分治"></a>关于dp与分治</h3><p>dp也是在做和分治类似的穷举，只是有了存储状态的表，所以避免了重复计算，用空间换取了时间。</p>
 <ul>
 <li><p>递归+记忆化搜索 是一种自上而下的dp</p>

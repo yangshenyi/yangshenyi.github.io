@@ -109,21 +109,7 @@
   </url>
   
   <url>
-    <loc>http://yangshenyi.github.io/tags/hardware/</loc>
-    <lastmod>2021-04-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yangshenyi.github.io/tags/riscv/</loc>
-    <lastmod>2021-04-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yangshenyi.github.io/tags/Data-Structure-File/</loc>
+    <loc>http://yangshenyi.github.io/tags/advanced-algorithm/</loc>
     <lastmod>2021-04-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -151,7 +137,21 @@
   </url>
   
   <url>
-    <loc>http://yangshenyi.github.io/tags/advanced-algorithm/</loc>
+    <loc>http://yangshenyi.github.io/tags/hardware/</loc>
+    <lastmod>2021-04-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangshenyi.github.io/tags/riscv/</loc>
+    <lastmod>2021-04-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangshenyi.github.io/tags/Data-Structure-File/</loc>
     <lastmod>2021-04-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -167,13 +167,6 @@
   </url>
   
   <url>
-    <loc>http://yangshenyi.github.io/categories/computer-organization-and-design/</loc>
-    <lastmod>2021-04-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yangshenyi.github.io/categories/git/</loc>
     <lastmod>2021-04-25</lastmod>
     <changefreq>daily</changefreq>
@@ -182,6 +175,13 @@
   
   <url>
     <loc>http://yangshenyi.github.io/categories/python/</loc>
+    <lastmod>2021-04-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yangshenyi.github.io/categories/computer-organization-and-design/</loc>
     <lastmod>2021-04-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
